@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: gate-status-checker
+    runtime: python
+    plan: free
+    region: singapore # Closest to India for fast mobile response
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: RAILRADAR_API_KEY
+        sync: false # Set manually in Render Dashboard under Environment Variables

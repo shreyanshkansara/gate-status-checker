@@ -1,0 +1,10 @@
+{
+  "KAD": { "name": "Khandala", "lat": 18.7548, "lon": 73.3769 },
+  "LNL": { "name": "Lonavala", "lat": 18.749306, "lon": 73.40806 },
+  "_reference": {
+    "KAD_LNL_segment_km": 3,
+    "KAD_LNL_observed_minutes": 5,
+    "derived_avg_speed_kmph": 36,
+    "note": "Derived from one observed timetable entry (Khandala dep 3:11 PM at km 1015, Lonavla arr 3:16 PM at km 1018). Used as a sanity bound and as the basis for avg_speed_kmph on this ghat stretch."
+  }
+}

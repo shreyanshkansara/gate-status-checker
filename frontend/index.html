@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LC Gate Status Checker | Khandala (KAD) - Lonavala (LNL)</title>
+  <meta name="description" content="Minimal open/closed status estimator for LC Gate 30 & 31 near Khandala on Indian Railways.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <main class="card" id="gate-card">
+      <!-- Card Header -->
+      <header class="card-header">
+        <div class="division-tag">Central Railway &bull; Mumbai Division</div>
+        <h1 id="gate-title" class="card-title">LC Gate No. 30 &amp; 31, Khandala</h1>
+        <p id="gate-subtitle" class="card-subtitle">Represents Gate No. 30 &amp; Gate No. 31 (single status unit)</p>
+      </header>
+
+      <!-- Dynamic Status Result Area -->
+      <section class="status-section" id="status-section" aria-live="polite">
+        <!-- Initial Neutral Badge -->
+        <div class="status-badge badge-neutral" id="status-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-text" id="badge-text">Status Unchecked</span>
+        </div>
+
+        <!-- Muted Visual Distance Estimate Disclaimer (Shown below badge when estimated) -->
+        <p class="estimate-note hidden" id="estimate-note">
+          ETA is approximate &mdash; gate distance is a visual estimate, not a measured value.
+        </p>
+
+        <!-- Message / Stale Notice Area -->
+        <div class="status-message" id="status-message">
+          Click below to check current crossing status. Live data is fetched only on demand.
+        </div>
+
+        <!-- Supporting Train List -->
+        <div class="train-list-wrap hidden" id="train-list-wrap">
+          <div class="train-list-header">Approaching &amp; Recent Trains</div>
+          <ul class="train-list" id="train-list"></ul>
+        </div>
+      </section>
+
+      <!-- Action Area -->
+      <footer class="card-actions">
+        <button id="check-btn" class="btn-check" type="button">
+          <span class="spinner hidden" id="btn-spinner"></span>
+          <span id="btn-text">Check Status</span>
+        </button>
+        <div class="last-checked" id="last-checked"></div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

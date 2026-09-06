@@ -1,0 +1,6144 @@
+{
+  "cached_at": "2026-09-06T17:17:48.824858+00:00",
+  "station_code": "LNL",
+  "success": true,
+  "data": {
+    "station": {
+      "code": "LNL",
+      "name": "Lonavla",
+      "city": "Lonavala",
+      "elevation_m": 623,
+      "lat": 18.7503694,
+      "lng": 73.4069436,
+      "stationType": "junction",
+      "popularity": 0,
+      "railwayLines": null,
+      "facilities": []
+    },
+    "trains": [
+      {
+        "train": {
+          "number": "12701",
+          "name": "Hussain Sagar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "HYB",
+            "name": "Hyderabad Deccan"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "00:06",
+          "departure": "00:06",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 126.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16209",
+          "name": "Ajmer - Mysuru Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "destination": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "runDays": [
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 182,
+          "arrival": "00:21",
+          "departure": "00:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1051.5,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16531",
+          "name": "KSR Bengaluru Garib Nawaz Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "destination": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 182,
+          "arrival": "00:21",
+          "departure": "00:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1051.5,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16533",
+          "name": "KSR Bengaluru Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "JU",
+            "name": "Jodhpur Jn"
+          },
+          "destination": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 173,
+          "arrival": "00:21",
+          "departure": "00:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1015.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20685",
+          "name": "Ksr Bengaluru SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "GIMB",
+            "name": "Gandhidham Jn"
+          },
+          "destination": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 141,
+          "arrival": "00:21",
+          "departure": "00:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 847.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20693",
+          "name": "KSR Bengaluru SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "JU",
+            "name": "Jodhpur Jn"
+          },
+          "destination": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "runDays": [
+            "thu",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 173,
+          "arrival": "00:21",
+          "departure": "00:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1015.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12264",
+          "name": "Hazrat Nizamuddin - Pune AC Duronto Express",
+          "type": "Duronto Express",
+          "source": {
+            "code": "NZM",
+            "name": "Hazrat Nizamuddin Jn"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 217,
+          "arrival": "00:35",
+          "departure": "00:35",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1446.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11013",
+          "name": "Coimbatore Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "CBE",
+            "name": "Coimbatore Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "00:40",
+          "departure": "00:40",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 110.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11020",
+          "name": "Konark Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "BBSN",
+            "name": "Bhubaneswar New"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 268,
+          "arrival": "00:40",
+          "departure": "00:42",
+          "arrivalDay": 3,
+          "departureDay": 3,
+          "distance": 1815.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12219",
+          "name": "Mumbai LTT - Secunderabad AC Duronto Express",
+          "type": "Duronto Express",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "SC",
+            "name": "Secunderabad Jn"
+          },
+          "runDays": [
+            "wed",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 26,
+          "arrival": "00:48",
+          "departure": "00:48",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 92.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12115",
+          "name": "Siddheshwar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "01:05",
+          "departure": "01:05",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 126.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20822",
+          "name": "Santragachi - Pune Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "SRC",
+            "name": "Santragachi Jn"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 292,
+          "arrival": "01:08",
+          "departure": "01:08",
+          "arrivalDay": 3,
+          "departureDay": 3,
+          "distance": 2000.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20992",
+          "name": "Ajmer Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "DD",
+            "name": "Daund Jn"
+          },
+          "destination": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 28,
+          "arrival": "01:17",
+          "departure": "01:20",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 139.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "01435",
+          "name": "Solapur - Mumbai LTT Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 100,
+          "arrival": "01:20",
+          "departure": "01:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 774.4,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "01445",
+          "name": "Pune - Ratnagiri Ganpati Special",
+          "type": "AC EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "RN",
+            "name": "Ratnagiri"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "01:20",
+          "departure": "01:22",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "01447",
+          "name": "Pune - Ratnagiri Ganpati Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "RN",
+            "name": "Ratnagiri"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "01:20",
+          "departure": "01:22",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "20916",
+          "name": "Indore - Charlapalli Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "INDB",
+            "name": "Indore Jn"
+          },
+          "destination": {
+            "code": "CHZ",
+            "name": "Charlapalli"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 143,
+          "arrival": "01:31",
+          "departure": "01:31",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 903.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11304",
+          "name": "Mumbai Ltt Weekly Express",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 100,
+          "arrival": "01:37",
+          "departure": "01:37",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 774.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22157",
+          "name": "Chennai Egmore SF Mail",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "MS",
+            "name": "Chennai Egmore"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "01:35",
+          "departure": "01:37",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22193",
+          "name": "Gwalior Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "DD",
+            "name": "Daund Jn"
+          },
+          "destination": {
+            "code": "GWL",
+            "name": "Gwalior Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 28,
+          "arrival": "01:40",
+          "departure": "01:40",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 139.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99802",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "01:50",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "16554",
+          "name": "SMVT Bengaluru Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "SMVB",
+            "name": "SMVT Bengaluru"
+          },
+          "runDays": [
+            "wed",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "01:52",
+          "departure": "01:55",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "18519",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "VSKP",
+            "name": "Visakhapatnam"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 218,
+          "arrival": "01:54",
+          "departure": "01:56",
+          "arrivalDay": 3,
+          "departureDay": 3,
+          "distance": 1385.5,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12702",
+          "name": "Hussain Sagar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "HYB",
+            "name": "Hyderabad Deccan"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 100,
+          "arrival": "02:02",
+          "departure": "02:02",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 660,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "09324",
+          "name": "Indore - Khadki Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "INDB",
+            "name": "Indore Jn"
+          },
+          "destination": {
+            "code": "KK",
+            "name": "Khadki"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 144,
+          "arrival": "02:00",
+          "departure": "02:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 883.3,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11140",
+          "name": "Mumbai CSMT SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "HPT",
+            "name": "Hospet Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 104,
+          "arrival": "02:05",
+          "departure": "02:07",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 712.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11027",
+          "name": "Satara Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "destination": {
+            "code": "STR",
+            "name": "Satara"
+          },
+          "runDays": [
+            "mon",
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "02:15",
+          "departure": "02:17",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 118,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11041",
+          "name": "Sainagar Shirdi Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "destination": {
+            "code": "SNSI",
+            "name": "Sainagar Shirdi"
+          },
+          "runDays": [
+            "tue",
+            "wed",
+            "thu",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "02:15",
+          "departure": "02:17",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 118,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12755",
+          "name": "Bhavnagar Terminus Superfast Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "COA",
+            "name": "Kakinada Port"
+          },
+          "destination": {
+            "code": "BVC",
+            "name": "Bhavnagar Terminus"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 182,
+          "arrival": "02:25",
+          "departure": "02:27",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1186.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22718",
+          "name": "Rajkot SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "SC",
+            "name": "Secunderabad Jn"
+          },
+          "destination": {
+            "code": "RJT",
+            "name": "Rajkot Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 99,
+          "arrival": "02:25",
+          "departure": "02:27",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 659.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16614",
+          "name": "Rajkot Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CBE",
+            "name": "Coimbatore Jn"
+          },
+          "destination": {
+            "code": "RJT",
+            "name": "Rajkot Jn"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 187,
+          "arrival": "02:32",
+          "departure": "02:32",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1413,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20967",
+          "name": "Porbandar Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "SC",
+            "name": "Secunderabad Jn"
+          },
+          "destination": {
+            "code": "PBR",
+            "name": "Porbandar"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 99,
+          "arrival": "02:32",
+          "departure": "02:32",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 659.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22158",
+          "name": "Mumbai CSMT SF Mail",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "MS",
+            "name": "Chennai Egmore"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 175,
+          "arrival": "02:50",
+          "departure": "02:52",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1154,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11036",
+          "name": "Sharavati Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "destination": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 147,
+          "arrival": "03:13",
+          "departure": "03:13",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1093.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11006",
+          "name": "Dadar CHALUKYA EXPRESS",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PDY",
+            "name": "Pondicherry"
+          },
+          "destination": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "runDays": [
+            "tue",
+            "wed",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 212,
+          "arrival": "03:13",
+          "departure": "03:13",
+          "arrivalDay": 3,
+          "departureDay": 3,
+          "distance": 1516.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11022",
+          "name": "Dadar Central Chalukya Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "TEN",
+            "name": "Tirunelveli"
+          },
+          "destination": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "runDays": [
+            "mon",
+            "thu",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 215,
+          "arrival": "03:13",
+          "departure": "03:13",
+          "arrivalDay": 3,
+          "departureDay": 3,
+          "distance": 1686.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "09059",
+          "name": "Velankanni Special Fare Festival Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "BDTS",
+            "name": "Bandra Terminus"
+          },
+          "destination": {
+            "code": "VLNK",
+            "name": "Velankanni"
+          },
+          "runDays": [
+            "tue",
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 37,
+          "arrival": "03:15",
+          "departure": "03:20",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 157,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "09061",
+          "name": "Valsad - Velankanni Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "BL",
+            "name": "Valsad"
+          },
+          "destination": {
+            "code": "VLNK",
+            "name": "Velankanni"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "03:15",
+          "departure": "03:20",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 202.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11028",
+          "name": "Dadar Central Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "STR",
+            "name": "Satara"
+          },
+          "destination": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 81,
+          "arrival": "03:50",
+          "departure": "03:52",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 570.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11042",
+          "name": "Dadar Central Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "SNSI",
+            "name": "Sainagar Shirdi"
+          },
+          "destination": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "runDays": [
+            "wed",
+            "thu",
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 48,
+          "arrival": "03:50",
+          "departure": "03:52",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 322,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12116",
+          "name": "Siddheshwar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 50,
+          "arrival": "03:53",
+          "departure": "03:53",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 326.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22149",
+          "name": "Pune SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "ERS",
+            "name": "Ernakulam Jn"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "tue",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 170,
+          "arrival": "04:03",
+          "departure": "04:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1298.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "01446",
+          "name": "Ratnagiri - Pune Ganpati Special",
+          "type": "AC EXPRESS",
+          "source": {
+            "code": "RN",
+            "name": "Ratnagiri"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 58,
+          "arrival": "04:05",
+          "departure": "04:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 388.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "01448",
+          "name": "Ratnagiri - Pune Ganpati Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "RN",
+            "name": "Ratnagiri"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 58,
+          "arrival": "04:05",
+          "departure": "04:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 388.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "17317",
+          "name": "Dadar Central Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "UBL",
+            "name": "SSS Hubballi Jn"
+          },
+          "destination": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 88,
+          "arrival": "04:12",
+          "departure": "04:14",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 622.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "17412",
+          "name": "Mahalaxmi Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "KOP",
+            "name": "Shri Chhatrapati Shahu Maharaj Terminus"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 60,
+          "arrival": "04:27",
+          "departure": "04:29",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 390.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22108",
+          "name": "Mumbai CSMT SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "LUR",
+            "name": "Latur"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 58,
+          "arrival": "05:19",
+          "departure": "05:19",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 389.6,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22144",
+          "name": "Mumbai CSMT SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "BIDR",
+            "name": "Bidar"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "thu",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 73,
+          "arrival": "05:19",
+          "departure": "05:19",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 536.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99801",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "05:20",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "09323",
+          "name": "Indore Special Fare Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "KK",
+            "name": "Khadki"
+          },
+          "destination": {
+            "code": "INDB",
+            "name": "Indore Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 16,
+          "arrival": "05:42",
+          "departure": "05:45",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 57.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99804",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "06:05",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "11049",
+          "name": "SCSMT Kolhapur Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "KOP",
+            "name": "Shri Chhatrapati Shahu Maharaj Terminus"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 106,
+          "arrival": "06:08",
+          "departure": "06:10",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 560.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11087",
+          "name": "Veraval - Pune Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "VRL",
+            "name": "Veraval"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 170,
+          "arrival": "06:08",
+          "departure": "06:10",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 991.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11089",
+          "name": "Pune Express",
+          "type": "Mail/Express",
+          "source": {
+            "code": "BGKT",
+            "name": "Bhagat-ki-Kothi"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 170,
+          "arrival": "06:08",
+          "departure": "06:10",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 998.3,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11091",
+          "name": "Bhuj - Pune Express",
+          "type": "Mail/Express",
+          "source": {
+            "code": "BHUJ",
+            "name": "Bhuj"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 151,
+          "arrival": "06:08",
+          "departure": "06:10",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 919.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "20475",
+          "name": "Miraj Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "BKN",
+            "name": "Bikaner Jn"
+          },
+          "destination": {
+            "code": "MRJ",
+            "name": "Miraj Jn"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 201,
+          "arrival": "06:08",
+          "departure": "06:10",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1291.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22185",
+          "name": "Ahimsa SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 106,
+          "arrival": "06:08",
+          "departure": "06:10",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 560.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "19567",
+          "name": "Okha Vivek Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "TN",
+            "name": "Tuticorin"
+          },
+          "destination": {
+            "code": "OKHA",
+            "name": "Okha"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 216,
+          "arrival": "06:18",
+          "departure": "06:18",
+          "arrivalDay": 3,
+          "departureDay": 3,
+          "distance": 1655.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12297",
+          "name": "Ahmedabad - Pune Duronto Express",
+          "type": "Duronto Express",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "tue",
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 103,
+          "arrival": "06:17",
+          "departure": "06:20",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 566.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99803",
+          "name": "Lonavala - Shivajinagar Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "06:30",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "22979",
+          "name": "Hisar - Khadki SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "HSR",
+            "name": "Hisar Jn"
+          },
+          "destination": {
+            "code": "KK",
+            "name": "Khadki"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 221,
+          "arrival": "06:37",
+          "departure": "06:40",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1576.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12940",
+          "name": "Jaipur - Pune SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "JP",
+            "name": "Jaipur Jn"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "tue",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 180,
+          "arrival": "06:46",
+          "departure": "06:46",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1227.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "17614",
+          "name": "Panvel Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "NED",
+            "name": "Nanded"
+          },
+          "destination": {
+            "code": "PNVL",
+            "name": "Panvel"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 81,
+          "arrival": "06:54",
+          "departure": "06:54",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 608.5,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99806",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "07:05",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "11010",
+          "name": "Sinhagad Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "07:13",
+          "departure": "07:15",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99805",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "07:25",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "22944",
+          "name": "Indore - Daund SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "INDB",
+            "name": "Indore Jn"
+          },
+          "destination": {
+            "code": "DD",
+            "name": "Daund Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 146,
+          "arrival": "07:42",
+          "departure": "07:45",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 897.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99808",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "07:50",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "22105",
+          "name": "Indrayani SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "07:58",
+          "departure": "08:00",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12124",
+          "name": "Deccan Queen",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "08:06",
+          "departure": "08:07",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99807",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "08:20",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "12126",
+          "name": "Pragati Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "08:28",
+          "departure": "08:30",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "09060",
+          "name": "Bandra Terminus Special Fare Festival Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "VLNK",
+            "name": "Velankanni"
+          },
+          "destination": {
+            "code": "BDTS",
+            "name": "Bandra Terminus"
+          },
+          "runDays": [
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 210,
+          "arrival": "08:28",
+          "departure": "08:30",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1494.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12127",
+          "name": "Pune Intercity SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "08:48",
+          "departure": "08:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "17221",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "COA",
+            "name": "Kakinada Port"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "wed",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 182,
+          "arrival": "08:49",
+          "departure": "08:51",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1186.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "20667",
+          "name": "Khatipura SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "destination": {
+            "code": "KWP",
+            "name": "Khatipura"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 164,
+          "arrival": "08:56",
+          "departure": "08:56",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1215.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20915",
+          "name": "Charlapalli - Indore Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "CHZ",
+            "name": "Charlapalli"
+          },
+          "destination": {
+            "code": "INDB",
+            "name": "Indore Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 102,
+          "arrival": "09:06",
+          "departure": "09:06",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 671.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "18520",
+          "name": "Visakhapatnam Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "VSKP",
+            "name": "Visakhapatnam"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "09:13",
+          "departure": "09:15",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12220",
+          "name": "Secunderabad - Mumbai LTT AC Duronto Express",
+          "type": "Duronto Express",
+          "source": {
+            "code": "SC",
+            "name": "Secunderabad Jn"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "tue",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 99,
+          "arrival": "09:16",
+          "departure": "09:16",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 659.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "14805",
+          "name": "Barmer AC Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "destination": {
+            "code": "BME",
+            "name": "Barmer"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 163,
+          "arrival": "09:20",
+          "departure": "09:20",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1148.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "19668",
+          "name": "Mysore - Udaipur City Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "destination": {
+            "code": "UDZ",
+            "name": "Udaipur City"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 176,
+          "arrival": "09:20",
+          "departure": "09:20",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1231.5,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99810",
+          "name": "Shivajinagar - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 17,
+          "arrival": "09:25",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 61.2,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "16281",
+          "name": "Mysuru - Ajmer Express",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "destination": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 159,
+          "arrival": "09:23",
+          "departure": "09:25",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1171.5,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22498",
+          "name": "Tiruchchirappalli - Shri Ganganagar Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "TPJ",
+            "name": "Tiruchchirappalli Jn"
+          },
+          "destination": {
+            "code": "SGNR",
+            "name": "Shri Ganganagar"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 215,
+          "arrival": "09:23",
+          "departure": "09:25",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1516.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22160",
+          "name": "Mumbai CSMT SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "09:31",
+          "departure": "09:31",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1152.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11007",
+          "name": "Deccan Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "09:38",
+          "departure": "09:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22731",
+          "name": "Mumbai CSMT SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "HYB",
+            "name": "Hyderabad Deccan"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 100,
+          "arrival": "09:58",
+          "departure": "10:00",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 660,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99809",
+          "name": "Lonavala - Shivajinagar Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "10:05",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "22226",
+          "name": "Solapur - Mumbai CSMT Vande Bharat Express",
+          "type": "Vande Bharat Express",
+          "source": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 50,
+          "arrival": "10:22",
+          "departure": "10:22",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 326.1,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11301",
+          "name": "Udyan Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "10:33",
+          "departure": "10:35",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16587",
+          "name": "Bikaner Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "destination": {
+            "code": "BKN",
+            "name": "Bikaner Jn"
+          },
+          "runDays": [
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 163,
+          "arrival": "10:53",
+          "departure": "10:53",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1148.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11029",
+          "name": "Koyna Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "KOP",
+            "name": "Shri Chhatrapati Shahu Maharaj Terminus"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "11:08",
+          "departure": "11:10",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99812",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "11:20",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "11014",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CBE",
+            "name": "Coimbatore Jn"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 178,
+          "arrival": "11:28",
+          "departure": "11:28",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1384.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99811",
+          "name": "Lonavala - Shivajinagar Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "11:30",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "20821",
+          "name": "Pune - Santragachi Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "SRC",
+            "name": "Santragachi Jn"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "11:55",
+          "departure": "11:55",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12493",
+          "name": "Darshan SF Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "MRJ",
+            "name": "Miraj Jn"
+          },
+          "destination": {
+            "code": "NZM",
+            "name": "Hazrat Nizamuddin Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 53,
+          "arrival": "12:03",
+          "departure": "12:05",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 343.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "09420",
+          "name": "Ahmedabad Special Fare Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "TPJ",
+            "name": "Tiruchchirappalli Jn"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 266,
+          "arrival": "12:08",
+          "departure": "12:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1558.6,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "19420",
+          "name": "Ahmedabad Weekly Express",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "TPJ",
+            "name": "Tiruchchirappalli Jn"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 258,
+          "arrival": "12:08",
+          "departure": "12:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1529.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20919",
+          "name": "Ekta Nagar Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "destination": {
+            "code": "EKNR",
+            "name": "Ekta Nagar"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "12:08",
+          "departure": "12:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1152.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22180",
+          "name": "Mumbai Ltt Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "12:08",
+          "departure": "12:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1152.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22919",
+          "name": "Chennai Central - Ahmedabad Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "12:08",
+          "departure": "12:08",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1152.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12263",
+          "name": "Pune - Hazrat Nizamuddin AC Duronto Express",
+          "type": "Duronto Express",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "NZM",
+            "name": "Hazrat Nizamuddin Jn"
+          },
+          "runDays": [
+            "tue",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "12:18",
+          "departure": "12:18",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99814",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "12:37",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "12164",
+          "name": "Mumbai LTT SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "12:40",
+          "departure": "12:42",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1152.4,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "01162",
+          "name": "Mumbai LTT Festival Special Fare Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "VLNK",
+            "name": "Velankanni"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 210,
+          "arrival": "12:42",
+          "departure": "12:45",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1494.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99816",
+          "name": "Shivajinagar - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 17,
+          "arrival": "13:20",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 61.2,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "99813",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "14:50",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "01161",
+          "name": "Velankanni Festival Special Fare Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "VLNK",
+            "name": "Velankanni"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:00",
+          "departure": "15:02",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "04703",
+          "name": "Hanumangarh - Shri Ganganagar Passenger Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "HSR",
+            "name": "Hisar Jn"
+          },
+          "destination": {
+            "code": "KK",
+            "name": "Khadki"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 221,
+          "arrival": "15:00",
+          "departure": "15:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1576.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22159",
+          "name": "MGR Chennai Central SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "15:08",
+          "departure": "15:10",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "01436",
+          "name": "Mumbai LTT - Solapur Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:11",
+          "departure": "15:11",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 106.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20495",
+          "name": "Hadapsar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "JU",
+            "name": "Jodhpur Jn"
+          },
+          "destination": {
+            "code": "HDP",
+            "name": "Hadapsar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "15:16",
+          "departure": "15:18",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1016,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22101",
+          "name": "Madurai Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "MDU",
+            "name": "Madurai Jn"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:21",
+          "departure": "15:21",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22194",
+          "name": "Daund Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "GWL",
+            "name": "Gwalior Jn"
+          },
+          "destination": {
+            "code": "DD",
+            "name": "Daund Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 176,
+          "arrival": "15:21",
+          "departure": "15:21",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1306.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22179",
+          "name": "MGR Chennai Central Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:25",
+          "departure": "15:25",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "19667",
+          "name": "Udaipur City - Mysore Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "UDZ",
+            "name": "Udaipur City"
+          },
+          "destination": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 159,
+          "arrival": "15:25",
+          "departure": "15:25",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1025,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11303",
+          "name": "Solapur Weekly Express",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:27",
+          "departure": "15:27",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 106.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11017",
+          "name": "Karaikal Weekly Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "KIK",
+            "name": "Karaikal"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:28",
+          "departure": "15:30",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "17222",
+          "name": "Kakinada Port Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "COA",
+            "name": "Kakinada Port"
+          },
+          "runDays": [
+            "thu",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "15:28",
+          "departure": "15:30",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99815",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "15:30",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "20991",
+          "name": "Daund Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "destination": {
+            "code": "DD",
+            "name": "Daund Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 199,
+          "arrival": "15:58",
+          "departure": "16:00",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1367.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99818",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "16:20",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "16340",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "NCJ",
+            "name": "Nagercoil Jn"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 215,
+          "arrival": "16:23",
+          "departure": "16:23",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1753.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16332",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "TVC",
+            "name": "Trivandrum Central"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 263,
+          "arrival": "16:22",
+          "departure": "16:25",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1807.5,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16352",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "NCJ",
+            "name": "Nagercoil Jn"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "thu",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 252,
+          "arrival": "16:22",
+          "departure": "16:25",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1815.5,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11019",
+          "name": "Konark Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "BBSN",
+            "name": "Bhubaneswar New"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "16:27",
+          "departure": "16:30",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11008",
+          "name": "Deccan Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "16:30",
+          "departure": "16:32",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22732",
+          "name": "Hyderabad SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "HYB",
+            "name": "Hyderabad Deccan"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "16:43",
+          "departure": "16:45",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22943",
+          "name": "Daund - Indore SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "DD",
+            "name": "Daund Jn"
+          },
+          "destination": {
+            "code": "INDB",
+            "name": "Indore Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 28,
+          "arrival": "16:42",
+          "departure": "16:45",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 139.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12494",
+          "name": "Darshan SF Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "NZM",
+            "name": "Hazrat Nizamuddin Jn"
+          },
+          "destination": {
+            "code": "MRJ",
+            "name": "Miraj Jn"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 217,
+          "arrival": "16:58",
+          "departure": "17:00",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1446.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22497",
+          "name": "Shri Ganganagar - Tiruchchirappalli Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "SGNR",
+            "name": "Shri Ganganagar"
+          },
+          "destination": {
+            "code": "TPJ",
+            "name": "Tiruchchirappalli Jn"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 231,
+          "arrival": "16:58",
+          "departure": "17:00",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1590.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11030",
+          "name": "Koyna Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "KOP",
+            "name": "Shri Chhatrapati Shahu Maharaj Terminus"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 60,
+          "arrival": "17:13",
+          "departure": "17:15",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 390.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "14806",
+          "name": "Yesvantpur AC Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "BME",
+            "name": "Barmer"
+          },
+          "destination": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 170,
+          "arrival": "17:15",
+          "departure": "17:15",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1073.5,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16588",
+          "name": "Yesvantpur Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "BKN",
+            "name": "Bikaner Jn"
+          },
+          "destination": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "runDays": [
+            "tue",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 201,
+          "arrival": "17:15",
+          "departure": "17:15",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1291.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11302",
+          "name": "Udyan Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 134,
+          "arrival": "17:23",
+          "departure": "17:25",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1007.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99817",
+          "name": "Lonavala - Shivajinagar Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "17:30",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "16282",
+          "name": "Ajmer - Mysuru Express",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "destination": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 167,
+          "arrival": "17:27",
+          "departure": "17:30",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1055.3,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "17613",
+          "name": "Hazur Sahib Nanded Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PNVL",
+            "name": "Panvel"
+          },
+          "destination": {
+            "code": "NED",
+            "name": "Nanded"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 10,
+          "arrival": "17:41",
+          "departure": "17:43",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 55.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99820",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "17:45",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "11018",
+          "name": "Mumbai LTT Weekly Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "KIK",
+            "name": "Karaikal"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 254,
+          "arrival": "17:53",
+          "departure": "17:55",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1515.1,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16553",
+          "name": "Mumbai LTT Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "SMVB",
+            "name": "SMVT Bengaluru"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "tue",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 155,
+          "arrival": "17:53",
+          "departure": "17:55",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1098.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "20953",
+          "name": "Ahmedabad SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 174,
+          "arrival": "17:57",
+          "departure": "17:57",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1152.4,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22102",
+          "name": "Mumbai LTT Weekly SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "MDU",
+            "name": "Madurai Jn"
+          },
+          "destination": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 225,
+          "arrival": "17:57",
+          "departure": "17:57",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1585.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22225",
+          "name": "Mumbai CSMT - Solapur Vande Bharat Express",
+          "type": "Vande Bharat Express",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "SUR",
+            "name": "Solapur"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "18:05",
+          "departure": "18:05",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99819",
+          "name": "Lonavala - Shivajinagar Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "18:10",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "04704",
+          "name": "Shri Ganganagar - Hanumangarh Passenger Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "KK",
+            "name": "Khadki"
+          },
+          "destination": {
+            "code": "HSR",
+            "name": "Hisar Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 16,
+          "arrival": "18:27",
+          "departure": "18:30",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 57.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99822",
+          "name": "Shivajinagar - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 17,
+          "arrival": "18:38",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 61.2,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "20920",
+          "name": "M.g.r Chennai Central Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "EKNR",
+            "name": "Ekta Nagar"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 92,
+          "arrival": "18:39",
+          "departure": "18:39",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 509.3,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20668",
+          "name": "Yesvantpur Superfast Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "KWP",
+            "name": "Khatipura"
+          },
+          "destination": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 198,
+          "arrival": "18:39",
+          "departure": "18:39",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1247.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12128",
+          "name": "Mumbai CSMT Intercity SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "18:38",
+          "departure": "18:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "19419",
+          "name": "Tiruchchirappalli Weekly Express",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "TPJ",
+            "name": "Tiruchchirappalli Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 100,
+          "arrival": "18:40",
+          "departure": "18:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 519.6,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20954",
+          "name": "MGR Chennai Central SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 106,
+          "arrival": "18:40",
+          "departure": "18:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 560.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22920",
+          "name": "Ahmedabad - Chennai Central Humsafar Express",
+          "type": "Humsafar Express",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 106,
+          "arrival": "18:40",
+          "departure": "18:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 560.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "09419",
+          "name": "Tiruchchirappalli Special Fare Special",
+          "type": "TRAIN ON DEMAND",
+          "source": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "destination": {
+            "code": "TPJ",
+            "name": "Tiruchchirappalli Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 106,
+          "arrival": "18:42",
+          "departure": "18:42",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 560.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12125",
+          "name": "Pragati Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 37,
+          "arrival": "18:46",
+          "departure": "18:48",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 123.4,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22980",
+          "name": "Khadki - Hisar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "KK",
+            "name": "Khadki"
+          },
+          "destination": {
+            "code": "HSR",
+            "name": "Hisar Jn"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 16,
+          "arrival": "18:53",
+          "departure": "18:55",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 57.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12939",
+          "name": "Pune - Jaipur SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "JP",
+            "name": "Jaipur Jn"
+          },
+          "runDays": [
+            "wed",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "18:59",
+          "departure": "18:59",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99821",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "19:00",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "12123",
+          "name": "Deccan Queen",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "19:18",
+          "departure": "19:20",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 122.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99824",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "19:27",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "22106",
+          "name": "Indrayani SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "19:28",
+          "departure": "19:30",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99823",
+          "name": "Lonavala - Shivajinagar Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "19:35",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "16613",
+          "name": "Coimbatore Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "RJT",
+            "name": "Rajkot Jn"
+          },
+          "destination": {
+            "code": "CBE",
+            "name": "Coimbatore Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 149,
+          "arrival": "19:37",
+          "departure": "19:37",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 806.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "19568",
+          "name": "Tuticorin Vivek Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "OKHA",
+            "name": "Okha"
+          },
+          "destination": {
+            "code": "TN",
+            "name": "Tuticorin"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 179,
+          "arrival": "19:37",
+          "departure": "19:37",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 1047.6,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20968",
+          "name": "Secunderabad Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "PBR",
+            "name": "Porbandar"
+          },
+          "destination": {
+            "code": "SC",
+            "name": "Secunderabad Jn"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 171,
+          "arrival": "19:37",
+          "departure": "19:37",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 1005.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "12756",
+          "name": "Kakinada Port Superfast Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "BVC",
+            "name": "Bhavnagar Terminus"
+          },
+          "destination": {
+            "code": "COA",
+            "name": "Kakinada Port"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 152,
+          "arrival": "19:37",
+          "departure": "19:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 858.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22717",
+          "name": "Secunderabad SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "RJT",
+            "name": "Rajkot Jn"
+          },
+          "destination": {
+            "code": "SC",
+            "name": "Secunderabad Jn"
+          },
+          "runDays": [
+            "mon",
+            "wed",
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 149,
+          "arrival": "19:37",
+          "departure": "19:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 806.7,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16210",
+          "name": "Mysuru - Ajmer Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "destination": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "runDays": [
+            "tue",
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 175,
+          "arrival": "20:03",
+          "departure": "20:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1231.5,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16532",
+          "name": "Ajmer Garib Nawaz Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "destination": {
+            "code": "AII",
+            "name": "Ajmer Jn"
+          },
+          "runDays": [
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 162,
+          "arrival": "20:03",
+          "departure": "20:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1162.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16534",
+          "name": "Jodhpur Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "destination": {
+            "code": "JU",
+            "name": "Jodhpur Jn"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 162,
+          "arrival": "20:03",
+          "departure": "20:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1162.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20686",
+          "name": "Gandhidham Superfast Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "destination": {
+            "code": "GIMB",
+            "name": "Gandhidham Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 152,
+          "arrival": "20:03",
+          "departure": "20:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1093.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20694",
+          "name": "Jodhpur SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "SBC",
+            "name": "KSR Bengaluru"
+          },
+          "destination": {
+            "code": "JU",
+            "name": "Jodhpur Jn"
+          },
+          "runDays": [
+            "mon",
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 152,
+          "arrival": "20:03",
+          "departure": "20:03",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1093.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22150",
+          "name": "Ernakulam Jn. SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "ERS",
+            "name": "Ernakulam Jn"
+          },
+          "runDays": [
+            "wed",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "20:08",
+          "departure": "20:08",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11009",
+          "name": "Sinhagad Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "20:18",
+          "departure": "20:20",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "20496",
+          "name": "Jodhpur SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "HDP",
+            "name": "Hadapsar"
+          },
+          "destination": {
+            "code": "JU",
+            "name": "Jodhpur Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 19,
+          "arrival": "20:23",
+          "departure": "20:25",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 69.4,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99826",
+          "name": "Shivajinagar - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 17,
+          "arrival": "20:30",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 61.2,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "99825",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "20:40",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "11050",
+          "name": "Ahmedabad Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "KOP",
+            "name": "Shri Chhatrapati Shahu Maharaj Terminus"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 60,
+          "arrival": "20:48",
+          "departure": "20:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 390.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11088",
+          "name": "Pune - Veraval Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "VRL",
+            "name": "Veraval"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "20:48",
+          "departure": "20:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11090",
+          "name": "Bhagat Ki Kothi Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "BGKT",
+            "name": "Bhagat-ki-Kothi"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "20:48",
+          "departure": "20:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11092",
+          "name": "Pune - Bhuj Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "BHUJ",
+            "name": "Bhuj"
+          },
+          "runDays": [
+            "mon"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "20:48",
+          "departure": "20:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "20476",
+          "name": "Bikaner Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "MRJ",
+            "name": "Miraj Jn"
+          },
+          "destination": {
+            "code": "BKN",
+            "name": "Bikaner Jn"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 53,
+          "arrival": "20:48",
+          "departure": "20:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 343.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22186",
+          "name": "Ahimsa SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "20:48",
+          "departure": "20:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "12163",
+          "name": "MGR Chennai Central SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "20:56",
+          "departure": "20:58",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99828",
+          "name": "Shivajinagar - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 17,
+          "arrival": "21:30",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 61.2,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "99827",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "21:40",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "12298",
+          "name": "Pune - Ahmedabad Duronto Express",
+          "type": "Duronto Express",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "ADI",
+            "name": "Ahmedabad Jn"
+          },
+          "runDays": [
+            "mon",
+            "thu",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "21:47",
+          "departure": "21:50",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 63.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "99830",
+          "name": "Pune - Lonavla Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "21:57",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "99829",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "22:05",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "99832",
+          "name": "Shivajinagar - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "SVJR",
+            "name": "Shivaji Nagar"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 17,
+          "arrival": "22:25",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 61.2,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "99831",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "22:35",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "09062",
+          "name": "Velankanni - Dahanu Road Special",
+          "type": "MAIL/EXPRESS",
+          "source": {
+            "code": "VLNK",
+            "name": "Velankanni"
+          },
+          "destination": {
+            "code": "DRD",
+            "name": "Dahanu Road"
+          },
+          "runDays": [
+            "tue"
+          ]
+        },
+        "stop": {
+          "sequence": 210,
+          "arrival": "22:40",
+          "departure": "22:45",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1494.8,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "17411",
+          "name": "Mahalaxmi Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "KOP",
+            "name": "Shri Chhatrapati Shahu Maharaj Terminus"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "22:46",
+          "departure": "22:46",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "16339",
+          "name": "Nagercoil Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "NCJ",
+            "name": "Nagercoil Jn"
+          },
+          "runDays": [
+            "tue",
+            "wed",
+            "thu",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "23:01",
+          "departure": "23:01",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "17318",
+          "name": "SSS Hubballi Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "destination": {
+            "code": "UBL",
+            "name": "SSS Hubballi Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "23:00",
+          "departure": "23:02",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 114,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16331",
+          "name": "Thiruvananthapuram Central Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "TVC",
+            "name": "Trivandrum Central"
+          },
+          "runDays": [
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "23:13",
+          "departure": "23:15",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16351",
+          "name": "Nagercoil Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "NCJ",
+            "name": "Nagercoil Jn"
+          },
+          "runDays": [
+            "mon",
+            "fri"
+          ]
+        },
+        "stop": {
+          "sequence": 32,
+          "arrival": "23:13",
+          "departure": "23:15",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "22107",
+          "name": "Latur SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "LUR",
+            "name": "Latur"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "thu",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "23:16",
+          "departure": "23:16",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "22143",
+          "name": "Bidar SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "BIDR",
+            "name": "Bidar"
+          },
+          "runDays": [
+            "wed",
+            "fri",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "23:16",
+          "departure": "23:16",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99834",
+          "name": "Pune - Lonavala Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "destination": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 18,
+          "arrival": "23:30",
+          "departure": null,
+          "arrivalDay": 1,
+          "departureDay": null,
+          "distance": 63.8,
+          "stopType": "destination"
+        }
+      },
+      {
+        "train": {
+          "number": "11005",
+          "name": "Puducherry Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "destination": {
+            "code": "PDY",
+            "name": "Pondicherry"
+          },
+          "runDays": [
+            "mon",
+            "fri",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "23:34",
+          "departure": "23:34",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 118,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11021",
+          "name": "Tirunelveli Chalukya Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "destination": {
+            "code": "TEN",
+            "name": "Tirunelveli"
+          },
+          "runDays": [
+            "tue",
+            "wed",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "23:34",
+          "departure": "23:34",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 118,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "11035",
+          "name": "Sharavati Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "DR",
+            "name": "Dadar"
+          },
+          "destination": {
+            "code": "MYS",
+            "name": "Mysore Jn"
+          },
+          "runDays": [
+            "thu"
+          ]
+        },
+        "stop": {
+          "sequence": 35,
+          "arrival": "23:34",
+          "departure": "23:34",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 118,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "99833",
+          "name": "Lonavala - Pune Local",
+          "type": "SUBURBAN",
+          "source": {
+            "code": "LNL",
+            "name": "Lonavla"
+          },
+          "destination": {
+            "code": "PUNE",
+            "name": "Pune Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 1,
+          "arrival": null,
+          "departure": "23:45",
+          "arrivalDay": null,
+          "departureDay": 1,
+          "distance": 0,
+          "stopType": "origin"
+        }
+      },
+      {
+        "train": {
+          "number": "11139",
+          "name": "Hosapete SF Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "CSMT",
+            "name": "Mumbai CSMT"
+          },
+          "destination": {
+            "code": "HPT",
+            "name": "Hospet Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 42,
+          "arrival": "23:51",
+          "departure": "23:53",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 126.9,
+          "stopType": "halt"
+        }
+      }
+    ],
+    "count": 206,
+    "includeIntermediate": true
+  },
+  "meta": {
+    "timestamp": "2026-09-06T22:47:48+05:30",
+    "traceId": "1338db9d-938d-4846-9211-2047cae61ed6",
+    "source": "database",
+    "executionTime": 37
+  }
+}

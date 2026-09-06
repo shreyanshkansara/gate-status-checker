@@ -1,0 +1,16 @@
+[
+  {
+    "id": "gate30_31",
+    "name": "LC Gate No. 30 & 31, Khandala",
+    "represents": ["Gate No. 30", "Gate No. 31"],
+    "lat": null,
+    "lon": null,
+    "near_station": "KAD",
+    "far_station": "LNL",
+    "distance_from_near_km": 1.1,
+    "distance_is_estimated": true,
+    "distance_source": "visual_proportion_estimate",
+    "avg_speed_kmph": 36,
+    "note": "Represents both LC Gate 30 and 31, which are physically close together near Khandala station. Distance used is for the nearer of the two gates. One status check is treated as representative of both."
+  }
+]

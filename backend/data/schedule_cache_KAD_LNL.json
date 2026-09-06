@@ -1,0 +1,24 @@
+{
+  "cached_at": "2026-09-06T16:26:52.472975+00:00",
+  "from_station": "KAD",
+  "to_station": "LNL",
+  "success": true,
+  "data": {
+    "from": {
+      "code": "KAD",
+      "name": "Khandala"
+    },
+    "to": {
+      "code": "LNL",
+      "name": "Lonavla"
+    },
+    "trains": [],
+    "count": 0
+  },
+  "meta": {
+    "timestamp": "2026-09-06T21:56:52+05:30",
+    "traceId": "aeb59d63-7715-4aca-853b-1c27f78f77af",
+    "source": "database",
+    "executionTime": 3
+  }
+}
