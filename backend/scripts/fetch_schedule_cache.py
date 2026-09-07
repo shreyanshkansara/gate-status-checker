@@ -127,9 +127,93 @@ def fetch_and_cache_station_board(station_code: str, api_key: str) -> bool:
         return False
 
 
+def fetch_and_cache_local_trains(api_key: str, city: str = "Mumbai") -> bool:
+    """
+    Calls RailRadar Suburban/Local train lookup endpoint:
+    GET https://api.railradar.in/v1/lookup/trains/local?city={city}
+
+    Saves the response to backend/data/schedule_cache_local_mumbai.json
+    with {"cached_at": <iso_timestamp>, ...} wrapper.
+    Filters/keeps entries relevant to the Mumbai-Pune line corridor.
+    """
+    url = f"{RAILRADAR_BASE_URL}/lookup/trains/local"
+    params = {"city": city}
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Accept": "application/json",
+    }
+    cache_file = DATA_DIR / "schedule_cache_local_mumbai.json"
+
+    print(f"\nQuerying RailRadar Suburban/Local Lookup: {url}?city={city}")
+    try:
+        with httpx.Client(timeout=30.0) as client:
+            response = client.get(url, params=params, headers=headers)
+
+        if response.status_code != 200:
+            print(f"[-] Request failed with status HTTP {response.status_code}: {response.text}")
+            return False
+
+        raw_data = response.json()
+        now_iso = datetime.now(timezone.utc).isoformat()
+
+        # Extract data payload and filter for Mumbai-Pune line relevance
+        # (Karjat, Khopoli, Khandala, Lonavla, Pune corridor)
+        relevant_keywords = ["karjat", "khopoli", "khandala", "lonavla", "lonavala", "pune", "kad", "lnl"]
+        
+        if isinstance(raw_data, dict):
+            train_dict = raw_data.get("data", {})
+            if isinstance(train_dict, dict):
+                filtered_trains = {
+                    t_num: t_name for t_num, t_name in train_dict.items()
+                    if any(kw in t_name.lower() for kw in relevant_keywords)
+                }
+                filtered_payload = dict(raw_data)
+                # Keep filtered if any found, else keep original
+                filtered_payload["data"] = filtered_trains if filtered_trains else train_dict
+                total_count = len(filtered_payload["data"])
+            elif isinstance(train_dict, list):
+                filtered_trains = [
+                    t for t in train_dict
+                    if any(kw in (t.get("name") or t.get("train", {}).get("name", "")).lower() for kw in relevant_keywords)
+                ]
+                filtered_payload = dict(raw_data)
+                filtered_payload["data"] = filtered_trains if filtered_trains else train_dict
+                total_count = len(filtered_payload["data"])
+            else:
+                filtered_payload = raw_data
+                total_count = 0
+
+            cached_payload = {
+                "cached_at": now_iso,
+                "city": city,
+                **filtered_payload,
+            }
+        else:
+            cached_payload = {
+                "cached_at": now_iso,
+                "city": city,
+                "data": raw_data,
+            }
+            total_count = len(raw_data) if isinstance(raw_data, (dict, list)) else 0
+
+        with open(cache_file, "w", encoding="utf-8") as f:
+            json.dump(cached_payload, f, indent=2)
+
+        print(f"[+] SUCCESS: Cached {total_count} suburban/local train(s) to {cache_file.name}")
+        print(f"    - Timestamp: {now_iso}")
+        return True
+
+    except httpx.RequestError as exc:
+        print(f"[-] Connection error contacting RailRadar: {exc}")
+        return False
+    except Exception as exc:
+        print(f"[-] Unexpected error: {exc}")
+        return False
+
+
 def main():
     print("=" * 64)
-    print("      RAILRADAR STATION BOARD CACHE FETCHER (MANUAL)      ")
+    print("      RAILRADAR STATION BOARD & LOCAL CACHE FETCHER       ")
     print("=" * 64)
 
     api_key = os.getenv("RAILRADAR_API_KEY", "").strip()
@@ -147,11 +231,13 @@ def main():
         if fetch_and_cache_station_board(st, api_key):
             success_count += 1
 
+    # Also fetch and cache suburban/local lookup
+    print("\n" + "-" * 64)
+    local_success = fetch_and_cache_local_trains(api_key, city="Mumbai")
+
     print("\n" + "=" * 64)
-    if success_count == len(stations):
-        print(f"All {success_count} station board cache(s) successfully updated.")
-    else:
-        print(f"Completed with issues: {success_count}/{len(stations)} cache(s) updated.")
+    print(f"Station board caches updated: {success_count}/{len(stations)}")
+    print(f"Suburban/local cache updated: {'YES' if local_success else 'NO'}")
     print("=" * 64)
 
 

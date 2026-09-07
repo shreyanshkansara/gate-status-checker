@@ -1,5 +1,5 @@
 {
-  "cached_at": "2026-09-06T17:17:48.824858+00:00",
+  "cached_at": "2026-09-07T08:39:11.797806+00:00",
   "station_code": "LNL",
   "success": true,
   "data": {
@@ -6136,9 +6136,9 @@
     "includeIntermediate": true
   },
   "meta": {
-    "timestamp": "2026-09-06T22:47:48+05:30",
-    "traceId": "1338db9d-938d-4846-9211-2047cae61ed6",
+    "timestamp": "2026-09-07T14:09:11+05:30",
+    "traceId": "28645df6-dff9-41eb-9643-6732d7e7fd45",
     "source": "database",
-    "executionTime": 37
+    "executionTime": 8
   }
 }

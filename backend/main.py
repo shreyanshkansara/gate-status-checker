@@ -12,10 +12,19 @@ from dotenv import load_dotenv
 from backend.services.distance import validate_gate_distance
 from backend.services.schedule_filter import (
     load_cached_schedule,
+    load_cached_local_trains,
     get_candidate_trains,
+    get_candidate_trains_from_live,
     StaleScheduleError,
 )
-from backend.services.gate_status import estimate_gate_status
+from backend.services.gate_status import (
+    estimate_gate_status,
+    RailRadarError,
+)
+from backend.services.live_board import (
+    get_live_station_board,
+    filter_local_trains_for_segment,
+)
 
 # Configure logging
 logging.basicConfig(
@@ -115,13 +124,14 @@ async def get_gate_status():
     This is the ONLY endpoint that can trigger network calls to RailRadar.
 
     Flow:
-    1. Load gate config.
-    2. Run validate_gate_distance (advisory sanity check).
-    3. Load cached schedule (returns 'schedule_stale' if missing or expired).
-    4. Filter candidate trains within +/- 90 minutes.
-    5. If no candidates, return 'likely_open' with 0 RailRadar calls made.
-    6. If candidates exist, call estimate_gate_status (hits RailRadar once per candidate).
-    7. Return structured result with represents, distance_is_estimated, and distance_source.
+    1. Load gate config & advisory distance check.
+    2. Try live station board (GET /v1/stations/KAD/live).
+       On success: candidates carry live delay directly (0 further calls per candidate).
+       On failure: gracefully fall back to cached schedule (schedule_cache_KAD.json).
+    3. Merge suburban/local candidates from cached local trains file (reused offline up to 14 days).
+    4. If no candidates, return 'likely_open' (logging accurate live calls made).
+    5. Evaluate gate status: calls get_live_delay only for candidates lacking live delay.
+    6. Return structured result with represents, distance_is_estimated, distance_source, and data_source.
     """
     # 1. Load single gate config
     gate = load_single_gate_config()
@@ -131,37 +141,96 @@ async def get_gate_status():
     # Current IST time
     current_dt = datetime.now(IST)
 
-    # 2. Advisory distance validation check
+    # Advisory distance validation check
     stations = load_stations_config()
     if stations:
         validate_gate_distance(gate, stations)
 
-    # 3. Load cached schedule
+    data_source = "live"
+    live_calls_count = 0
+    candidates = []
+
+    # 2. Primary path: Live station board
     try:
-        schedule_data = load_cached_schedule(near_station, far_station, data_dir=DATA_DIR)
-    except StaleScheduleError as exc:
-        logger.warning("[REQUEST /gate/status] Schedule cache stale or missing: %s", exc)
-        logger.info("[REQUEST /gate/status] Made 0 RailRadar live API call(s) (schedule cache stale/missing)")
-        return {
-            "status": "schedule_stale",
-            "gate_id": gate.get("id"),
-            "gate_name": gate.get("name"),
-            "represents": gate.get("represents", []),
-            "distance_is_estimated": gate.get("distance_is_estimated", True),
-            "distance_source": gate.get("distance_source", ""),
-            "distance_from_near_km": gate.get("distance_from_near_km"),
-            "evaluated_at": current_dt.isoformat(),
-            "trains": [],
-            "error": str(exc),
-            "instructions": "Run 'python backend/scripts/fetch_schedule_cache.py' to update schedule cache.",
+        live_board_data = get_live_station_board(near_station)
+        live_calls_count += 1
+        data_source = "live"
+        candidates = get_candidate_trains_from_live(
+            live_board_data, current_dt, window_minutes=30, data_dir=DATA_DIR
+        )
+        logger.info(
+            "[REQUEST /gate/status] Loaded live station board for %s (1 RailRadar call made, data_source=live)",
+            near_station,
+        )
+    except RailRadarError as exc:
+        logger.warning(
+            "[REQUEST /gate/status] Live station board call failed for %s (%s). Falling back to cached schedule.",
+            near_station,
+            exc,
+        )
+        data_source = "cached_fallback"
+        try:
+            schedule_data = load_cached_schedule(near_station, far_station, data_dir=DATA_DIR)
+            candidates = get_candidate_trains(schedule_data, current_dt, window_minutes=30, data_dir=DATA_DIR)
+        except StaleScheduleError as stale_exc:
+            logger.warning("[REQUEST /gate/status] Schedule cache stale or missing: %s", stale_exc)
+            logger.info(
+                "[REQUEST /gate/status] Made %d RailRadar live API call(s) (schedule cache stale/missing)",
+                live_calls_count,
+            )
+            return {
+                "status": "schedule_stale",
+                "gate_id": gate.get("id"),
+                "gate_name": gate.get("name"),
+                "represents": gate.get("represents", []),
+                "distance_is_estimated": gate.get("distance_is_estimated", True),
+                "distance_source": gate.get("distance_source", ""),
+                "distance_from_near_km": gate.get("distance_from_near_km"),
+                "evaluated_at": current_dt.isoformat(),
+                "data_source": data_source,
+                "trains": [],
+                "error": str(stale_exc),
+                "instructions": "Run 'python backend/scripts/fetch_schedule_cache.py' to update schedule cache.",
+            }
+
+    # 3. Merge cached suburban/local trains (purely offline read)
+    try:
+        local_cache = load_cached_local_trains(data_dir=DATA_DIR)
+        local_data = local_cache.get("data", {})
+        local_candidates = filter_local_trains_for_segment(
+            local_data, near_station=near_station, far_station=far_station
+        )
+        existing_nums = {
+            str(c.get("train", {}).get("number") or c.get("train_number") or "").strip()
+            for c in candidates
         }
+        for lt in local_candidates:
+            lt_num = str(lt.get("train", {}).get("number") or lt.get("train_number") or "").strip()
+            if lt_num and lt_num not in existing_nums:
+                candidates.append(lt)
+                existing_nums.add(lt_num)
+    except StaleScheduleError as exc:
+        logger.warning(
+            "[REQUEST /gate/status] Suburban/local schedule cache stale or missing: %s. Proceeding without local candidates.",
+            exc,
+        )
+    except Exception as exc:
+        logger.warning(
+            "[REQUEST /gate/status] Could not load suburban/local trains cache: %s. Proceeding without local candidates.",
+            exc,
+        )
 
-    # 4. Filter candidate trains (+/- 30 minutes)
-    candidates = get_candidate_trains(schedule_data, current_dt, window_minutes=30, data_dir=DATA_DIR)
-
-    # 5. If no candidate trains, return likely_open without calling RailRadar
+    # 4. If no candidate trains, return likely_open
     if not candidates:
-        logger.info("[REQUEST /gate/status] Made 0 RailRadar live API call(s) (no candidate trains in +/- 30m window)")
+        if data_source == "live":
+            logger.info(
+                "[REQUEST /gate/status] Made 1 RailRadar live API call(s) (live station board; no candidate trains in +/- 30m window)"
+            )
+        else:
+            logger.info(
+                "[REQUEST /gate/status] Made 0 RailRadar live API call(s) (cached fallback; no candidate trains in +/- 30m window)"
+            )
+
         return {
             "status": "likely_open",
             "gate_id": gate.get("id"),
@@ -171,37 +240,47 @@ async def get_gate_status():
             "distance_source": gate.get("distance_source", ""),
             "distance_from_near_km": gate.get("distance_from_near_km"),
             "evaluated_at": current_dt.isoformat(),
+            "data_source": data_source,
             "trains": [],
             "error": None,
         }
 
-    # 6. Call RailRadar live API for candidates (once per candidate)
+    # 5. Call RailRadar live API for candidates (skips candidates from live_board)
     train_summary = [
         f"{str(c.get('train', {}).get('number') or c.get('train_number') or '').strip()}({c.get('direction', 'DOWN')})"
         for c in candidates
     ]
+    needed_calls = sum(1 for c in candidates if c.get("_delay_source") != "live_board")
     logger.info(
-        "[REQUEST /gate/status] Making %d RailRadar live API call(s) for candidate train(s): %s",
+        "[REQUEST /gate/status] Evaluating %d candidate train(s): %s (data_source=%s, %d per-candidate live call(s) required)",
         len(candidates),
         train_summary,
+        data_source,
+        needed_calls,
     )
 
     segment_km = float(stations.get("_reference", {}).get("KAD_LNL_segment_km", 3.0)) if stations else 3.0
     result = estimate_gate_status(gate, candidates, current_dt, segment_km=segment_km)
 
+    calls_in_estimate = result.pop("_live_calls_made", needed_calls)
+    total_calls = live_calls_count + calls_in_estimate
+
     logger.info(
-        "[REQUEST /gate/status] Completed %d RailRadar live API call(s). Overall gate status: %s",
-        len(candidates),
+        "[REQUEST /gate/status] Completed %d RailRadar live API call(s) (data_source=%s). Overall gate status: %s",
+        total_calls,
+        data_source,
         result.get("status"),
     )
 
-    # 7. Ensure all required fields are present in response
+    # 6. Ensure all required fields are present in response
+    result["data_source"] = data_source
     result["represents"] = gate.get("represents", [])
     result["distance_is_estimated"] = gate.get("distance_is_estimated", True)
     result["distance_source"] = gate.get("distance_source", "")
     result["distance_from_near_km"] = gate.get("distance_from_near_km")
 
     return result
+
 
 
 # Mount frontend static files if directory exists

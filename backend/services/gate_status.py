@@ -173,6 +173,7 @@ def estimate_gate_status(
     transit_from_far = (distance_from_far_km / avg_speed_kmph) * 60.0 if avg_speed_kmph > 0 else 0.0
 
     supporting_trains: List[Dict[str, Any]] = []
+    live_calls_made = 0
 
     for train in candidate_trains:
         train_info = train.get("train", {})
@@ -188,6 +189,52 @@ def estimate_gate_status(
         kad_time_str = train.get("_scheduled_time_kad") or train.get("_scheduled_time") or parse_train_time_at_station(train, near_station)
         lnl_time_str = train.get("_scheduled_time_lnl") or train.get("scheduled_time_lnl")
 
+        # Call RailRadar live delay endpoint only if candidate does not already carry live delay
+        if train.get("_delay_source") == "live_board":
+            delay_minutes = int(train.get("delay_minutes", train.get("_delay_minutes", 0)))
+            live_status = str(train.get("_live_status", train.get("live_status", "running")))
+        else:
+            try:
+                live_data = get_live_delay(train_num, api_key=api_key)
+                live_calls_made += 1
+            except RailRadarError as exc:
+                logger.warning("RailRadar error fetching live delay for train %s: %s", train_num, exc)
+                return {
+                    "status": "status_unknown",
+                    "gate_id": gate_id,
+                    "gate_name": gate_name,
+                    "represents": represents,
+                    "distance_is_estimated": distance_is_estimated,
+                    "distance_source": distance_source,
+                    "distance_from_near_km": distance_from_near_km,
+                    "evaluated_at": current_datetime.isoformat(),
+                    "trains": supporting_trains,
+                    "error": str(exc),
+                    "_live_calls_made": live_calls_made,
+                }
+
+            delay_minutes = live_data.get("delay_minutes", 0)
+            live_status = live_data.get("status", "unknown")
+
+            # Fallback for suburban/local trains lacking explicit schedule time in cache:
+            if not kad_time_str and not lnl_time_str:
+                raw = live_data.get("raw", {})
+                for key in ("expectedArrivalTime", "expectedDepartureTime", "actualArrival", "actualDeparture"):
+                    val = raw.get(key)
+                    if isinstance(val, str) and "T" in val:
+                        time_candidate = val.split("T")[1][:5]
+                        if direction == "UP":
+                            lnl_time_str = time_candidate
+                        else:
+                            kad_time_str = time_candidate
+                        break
+                if not kad_time_str and not lnl_time_str:
+                    default_time = current_datetime.strftime("%H:%M")
+                    if direction == "UP":
+                        lnl_time_str = default_time
+                    else:
+                        kad_time_str = default_time
+
         if not kad_time_str and not lnl_time_str:
             continue
 
@@ -195,26 +242,7 @@ def estimate_gate_status(
         kad_dt = _parse_time_to_datetime(kad_time_str, current_datetime) if kad_time_str else None
         lnl_dt = _parse_time_to_datetime(lnl_time_str, current_datetime) if lnl_time_str else None
 
-        # Call RailRadar live delay endpoint
-        try:
-            live_data = get_live_delay(train_num, api_key=api_key)
-        except RailRadarError as exc:
-            logger.warning("RailRadar error fetching live delay for train %s: %s", train_num, exc)
-            return {
-                "status": "status_unknown",
-                "gate_id": gate_id,
-                "gate_name": gate_name,
-                "represents": represents,
-                "distance_is_estimated": distance_is_estimated,
-                "distance_source": distance_source,
-                "distance_from_near_km": distance_from_near_km,
-                "evaluated_at": current_datetime.isoformat(),
-                "trains": supporting_trains,
-                "error": str(exc),
-            }
 
-        delay_minutes = live_data.get("delay_minutes", 0)
-        live_status = live_data.get("status", "unknown")
 
         # Branched ETA computation based on direction of travel
         if direction == "UP":
@@ -272,4 +300,5 @@ def estimate_gate_status(
         "evaluated_at": current_datetime.isoformat(),
         "trains": supporting_trains,
         "error": None,
+        "_live_calls_made": live_calls_made,
     }

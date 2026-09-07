@@ -1,5 +1,5 @@
 {
-  "cached_at": "2026-09-06T17:17:48.359209+00:00",
+  "cached_at": "2026-09-07T08:39:11.700846+00:00",
   "station_code": "KAD",
   "success": true,
   "data": {
@@ -5015,9 +5015,9 @@
     "includeIntermediate": true
   },
   "meta": {
-    "timestamp": "2026-09-06T22:47:48+05:30",
-    "traceId": "cebfff87-adf8-4083-9232-25c876981ef8",
+    "timestamp": "2026-09-07T14:09:11+05:30",
+    "traceId": "d63d3d3c-22e4-4022-b643-1c3bc94c69ff",
     "source": "database",
-    "executionTime": 19
+    "executionTime": 8
   }
 }

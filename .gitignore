@@ -21,3 +21,7 @@ data/cache/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Scratch spike data
+backend/data/_spike_*.json
+
