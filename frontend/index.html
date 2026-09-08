@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LC Gate Status Checker | Khandala (KAD) - Lonavala (LNL)</title>
   <meta name="description" content="Minimal open/closed status estimator for LC Gate 30 & 31 near Khandala on Indian Railways.">
+  <meta name="color-scheme" content="dark">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -51,16 +52,14 @@
           <span class="spinner hidden" id="btn-spinner"></span>
           <span id="btn-text">Check Status</span>
         </button>
+        <button id="settings-btn" class="btn-settings" type="button" aria-haspopup="dialog" aria-controls="settings-modal" aria-label="Open Closure Window Settings">
+          <span class="settings-icon" aria-hidden="true">&#9881;</span>
+          <span>Settings</span>
+        </button>
         <div class="last-checked" id="last-checked"></div>
       </footer>
     </main>
   </div>
-
-  <!-- Fixed Settings Trigger Button -->
-  <button id="settings-btn" class="btn-settings" type="button" aria-haspopup="dialog" aria-controls="settings-modal" aria-label="Open Closure Window Settings">
-    <span class="settings-icon" aria-hidden="true">&#9881;</span>
-    <span>Settings</span>
-  </button>
 
   <!-- Lightweight Settings Modal -->
   <div id="settings-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">

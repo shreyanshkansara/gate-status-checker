@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --bg-body: #090d13;
   --bg-card: #121820;
   --bg-surface: #1a222c;
@@ -345,35 +346,29 @@ body {
   display: none !important;
 }
 
-/* Fixed Settings Trigger Button */
+/* Settings Trigger Button in Card Actions */
 .btn-settings {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
-  background: rgba(26, 34, 44, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  width: 100%;
+  padding: 10px 16px;
+  background: var(--bg-surface);
   border: 1px solid var(--border-card);
+  border-radius: var(--radius-btn);
   color: var(--text-secondary);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  padding: 8px 14px;
-  border-radius: var(--radius-badge);
   cursor: pointer;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 7px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-  transition: all 0.18s ease;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.16s ease;
 }
 
 .btn-settings:hover {
+  background: var(--bg-surface-subtle);
   color: var(--text-primary);
-  border-color: var(--color-blue);
-  box-shadow: 0 8px 22px rgba(56, 139, 253, 0.25);
-  transform: translateY(-1px);
+  border-color: var(--border-focus);
 }
 
 .btn-settings:active {
