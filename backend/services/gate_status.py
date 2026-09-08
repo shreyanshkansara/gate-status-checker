@@ -6,6 +6,7 @@ import httpx
 from dotenv import load_dotenv
 
 from backend.services.schedule_filter import parse_train_time_at_station
+from backend.services.closure_intervals import compute_merged_closure_intervals
 
 # Load environment variables
 load_dotenv()
@@ -13,11 +14,6 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 RAILRADAR_BASE_URL = "https://api.railradar.in/v1"
-
-# Gate closure window: gate is likely closed between -3 min (clearing) and +2 min (approaching)
-CLOSURE_WINDOW_PAST_MIN = -3.0
-CLOSURE_WINDOW_FUTURE_MIN = 2.0
-
 
 class RailRadarError(Exception):
     """Base exception for RailRadar API errors."""
@@ -143,6 +139,9 @@ def estimate_gate_status(
     current_datetime: datetime,
     api_key: Optional[str] = None,
     segment_km: float = 3.0,
+    closure_window_past_min: float = 3.0,
+    closure_window_future_min: float = 2.0,
+    train_merge_threshold_min: float = 10.0,
 ) -> Dict[str, Any]:
     """
     Estimates the open/closed status for level crossing gate 30 & 31.
@@ -154,7 +153,8 @@ def estimate_gate_status(
       eta_at_gate = scheduled_time_at_LNL + delay + ((segment_km - distance_from_near_km) / speed * 60)
 
     Closure rule:
-    - If any train's eta_at_gate falls within -3 to +2 minutes of current_datetime,
+    - If any train's eta_at_gate falls within the configurable closure window
+      (-closure_window_past_min to +closure_window_future_min minutes of current_datetime, default -3 to +2),
       status is 'likely_closed', otherwise 'likely_open'.
     """
     gate_id = gate.get("id", "unknown_gate")
@@ -199,6 +199,7 @@ def estimate_gate_status(
                 live_calls_made += 1
             except RailRadarError as exc:
                 logger.warning("RailRadar error fetching live delay for train %s: %s", train_num, exc)
+                supporting_trains.sort(key=lambda t: t["minutes_from_now"])
                 return {
                     "status": "status_unknown",
                     "gate_id": gate_id,
@@ -207,6 +208,10 @@ def estimate_gate_status(
                     "distance_is_estimated": distance_is_estimated,
                     "distance_source": distance_source,
                     "distance_from_near_km": distance_from_near_km,
+                    "closure_window_past_min": closure_window_past_min,
+                    "closure_window_future_min": closure_window_future_min,
+                    "merge_threshold_min": train_merge_threshold_min,
+                    "closed_intervals": [],
                     "evaluated_at": current_datetime.isoformat(),
                     "trains": supporting_trains,
                     "error": str(exc),
@@ -270,8 +275,8 @@ def estimate_gate_status(
 
         minutes_from_now = (eta_at_gate - current_datetime).total_seconds() / 60.0
 
-        # Tightened closure window: -3 to +2 minutes
-        causes_closure = (CLOSURE_WINDOW_PAST_MIN <= minutes_from_now <= CLOSURE_WINDOW_FUTURE_MIN)
+        # Configurable closure window: -closure_window_past_min to +closure_window_future_min
+        causes_closure = (-closure_window_past_min <= minutes_from_now <= closure_window_future_min)
 
         supporting_trains.append({
             "train_number": train_num,
@@ -286,8 +291,48 @@ def estimate_gate_status(
             "causes_closure": causes_closure,
         })
 
+    # Compute merged closure intervals
+    closed_intervals = compute_merged_closure_intervals(
+        supporting_trains,
+        merge_threshold_min=train_merge_threshold_min,
+        closure_window_past_min=closure_window_past_min,
+        closure_window_future_min=closure_window_future_min,
+    )
+
+    # Populate in_merged_group_with on each train
+    merged_with_map: Dict[str, List[str]] = {}
+    for group in closed_intervals:
+        if group.get("is_merged"):
+            nums = group.get("train_numbers", [])
+            for num in nums:
+                merged_with_map[num] = [other for other in nums if other != num]
+
+    for t in supporting_trains:
+        t["in_merged_group_with"] = merged_with_map.get(t["train_number"], [])
+
+    # Overall closure rule:
+    # Closed if ANY individual train's causes_closure is True OR current_datetime falls inside any closed interval
     is_closed = any(t["causes_closure"] for t in supporting_trains)
+    if not is_closed:
+        for group in closed_intervals:
+            start_dt = datetime.fromisoformat(group["interval_start"])
+            end_dt = datetime.fromisoformat(group["interval_end"])
+            if start_dt.tzinfo is None and current_datetime.tzinfo is not None:
+                start_dt = start_dt.replace(tzinfo=current_datetime.tzinfo)
+                end_dt = end_dt.replace(tzinfo=current_datetime.tzinfo)
+            elif start_dt.tzinfo is not None and current_datetime.tzinfo is None:
+                current_dt_cmp = current_datetime.replace(tzinfo=start_dt.tzinfo)
+            else:
+                current_dt_cmp = current_datetime
+
+            if start_dt <= current_dt_cmp <= end_dt:
+                is_closed = True
+                break
+
     overall_status = "likely_closed" if is_closed else "likely_open"
+
+    # Sort supporting trains ascending by live, delay-adjusted time-to-arrival
+    supporting_trains.sort(key=lambda t: t["minutes_from_now"])
 
     return {
         "status": overall_status,
@@ -297,6 +342,10 @@ def estimate_gate_status(
         "distance_is_estimated": distance_is_estimated,
         "distance_source": distance_source,
         "distance_from_near_km": distance_from_near_km,
+        "closure_window_past_min": closure_window_past_min,
+        "closure_window_future_min": closure_window_future_min,
+        "merge_threshold_min": train_merge_threshold_min,
+        "closed_intervals": closed_intervals,
         "evaluated_at": current_datetime.isoformat(),
         "trains": supporting_trains,
         "error": None,

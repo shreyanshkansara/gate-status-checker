@@ -25,6 +25,10 @@ from backend.services.live_board import (
     get_live_station_board,
     filter_local_trains_for_segment,
 )
+from backend.services.settings_store import (
+    load_settings,
+    save_settings,
+)
 
 # Configure logging
 logging.basicConfig(
@@ -133,10 +137,15 @@ async def get_gate_status():
     5. Evaluate gate status: calls get_live_delay only for candidates lacking live delay.
     6. Return structured result with represents, distance_is_estimated, distance_source, and data_source.
     """
-    # 1. Load single gate config
+    # 1. Load single gate config & settings
     gate = load_single_gate_config()
     near_station = gate.get("near_station", "KAD")
     far_station = gate.get("far_station", "LNL")
+
+    settings = load_settings(DATA_DIR)
+    closure_window_past_min = settings.get("closure_window_past_min", 3)
+    closure_window_future_min = settings.get("closure_window_future_min", 2)
+    train_merge_threshold_min = settings.get("train_merge_threshold_min", 10)
 
     # Current IST time
     current_dt = datetime.now(IST)
@@ -186,6 +195,10 @@ async def get_gate_status():
                 "distance_is_estimated": gate.get("distance_is_estimated", True),
                 "distance_source": gate.get("distance_source", ""),
                 "distance_from_near_km": gate.get("distance_from_near_km"),
+                "closure_window_past_min": closure_window_past_min,
+                "closure_window_future_min": closure_window_future_min,
+                "merge_threshold_min": train_merge_threshold_min,
+                "closed_intervals": [],
                 "evaluated_at": current_dt.isoformat(),
                 "data_source": data_source,
                 "trains": [],
@@ -239,6 +252,10 @@ async def get_gate_status():
             "distance_is_estimated": gate.get("distance_is_estimated", True),
             "distance_source": gate.get("distance_source", ""),
             "distance_from_near_km": gate.get("distance_from_near_km"),
+            "closure_window_past_min": closure_window_past_min,
+            "closure_window_future_min": closure_window_future_min,
+            "merge_threshold_min": train_merge_threshold_min,
+            "closed_intervals": [],
             "evaluated_at": current_dt.isoformat(),
             "data_source": data_source,
             "trains": [],
@@ -260,7 +277,15 @@ async def get_gate_status():
     )
 
     segment_km = float(stations.get("_reference", {}).get("KAD_LNL_segment_km", 3.0)) if stations else 3.0
-    result = estimate_gate_status(gate, candidates, current_dt, segment_km=segment_km)
+    result = estimate_gate_status(
+        gate,
+        candidates,
+        current_dt,
+        segment_km=segment_km,
+        closure_window_past_min=closure_window_past_min,
+        closure_window_future_min=closure_window_future_min,
+        train_merge_threshold_min=train_merge_threshold_min,
+    )
 
     calls_in_estimate = result.pop("_live_calls_made", needed_calls)
     total_calls = live_calls_count + calls_in_estimate
@@ -278,8 +303,45 @@ async def get_gate_status():
     result["distance_is_estimated"] = gate.get("distance_is_estimated", True)
     result["distance_source"] = gate.get("distance_source", "")
     result["distance_from_near_km"] = gate.get("distance_from_near_km")
+    result["closure_window_past_min"] = closure_window_past_min
+    result["closure_window_future_min"] = closure_window_future_min
+    result["merge_threshold_min"] = train_merge_threshold_min
+    result["closed_intervals"] = result.get("closed_intervals", [])
 
     return result
+
+
+@app.get("/settings")
+@app.get("/api/settings")
+async def get_settings():
+    """
+    Returns the current settings.json contents.
+    Pure local-file read, zero external calls.
+    """
+    return load_settings(DATA_DIR)
+
+
+@app.post("/settings")
+@app.post("/api/api_settings")
+@app.post("/api/settings")
+async def update_settings(payload: Dict[str, Any]):
+    """
+    Updates closure window settings.
+    Accepts JSON body: {closure_window_future_min, closure_window_past_min, train_merge_threshold_min}.
+    Returns 400 on invalid input, otherwise 200 with saved dict.
+    """
+    try:
+        kwargs = {}
+        if "closure_window_future_min" in payload:
+            kwargs["closure_window_future_min"] = payload["closure_window_future_min"]
+        if "closure_window_past_min" in payload:
+            kwargs["closure_window_past_min"] = payload["closure_window_past_min"]
+        if "train_merge_threshold_min" in payload:
+            kwargs["train_merge_threshold_min"] = payload["train_merge_threshold_min"]
+
+        return save_settings(DATA_DIR, **kwargs)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
 
 
 

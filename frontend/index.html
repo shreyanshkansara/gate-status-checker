@@ -56,6 +56,75 @@
     </main>
   </div>
 
+  <!-- Fixed Settings Trigger Button -->
+  <button id="settings-btn" class="btn-settings" type="button" aria-haspopup="dialog" aria-controls="settings-modal" aria-label="Open Closure Window Settings">
+    <span class="settings-icon" aria-hidden="true">&#9881;</span>
+    <span>Settings</span>
+  </button>
+
+  <!-- Lightweight Settings Modal -->
+  <div id="settings-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="settings-modal-title">
+    <div class="modal-card">
+      <header class="modal-header">
+        <h2 id="settings-modal-title" class="modal-title">Crossing Window Settings</h2>
+        <button id="modal-close-btn" class="modal-close-btn" type="button" aria-label="Close settings">&times;</button>
+      </header>
+
+      <div class="modal-body">
+        <p class="modal-desc">
+          Configure closure windows (1–15 min) and merge threshold (1–20 min) for closely-spaced trains.
+        </p>
+
+        <!-- Future Window Slider -->
+        <div class="setting-group">
+          <div class="setting-label-row">
+            <label for="future-slider" class="setting-label">Gate closes before a train arrives</label>
+            <span class="setting-value-badge" id="future-val-badge">2 min</span>
+          </div>
+          <input type="range" id="future-slider" class="range-slider" min="1" max="15" step="1" value="2" aria-label="Gate closes this many minutes before a train">
+          <div class="range-scale">
+            <span>1 min</span>
+            <span>15 min</span>
+          </div>
+        </div>
+
+        <!-- Past Window Slider -->
+        <div class="setting-group">
+          <div class="setting-label-row">
+            <label for="past-slider" class="setting-label">Gate stays closed after a train passes</label>
+            <span class="setting-value-badge" id="past-val-badge">3 min</span>
+          </div>
+          <input type="range" id="past-slider" class="range-slider" min="1" max="15" step="1" value="3" aria-label="Gate stays closed this many minutes after a train">
+          <div class="range-scale">
+            <span>1 min</span>
+            <span>15 min</span>
+          </div>
+        </div>
+
+        <!-- Train Merge Threshold Slider -->
+        <div class="setting-group">
+          <div class="setting-label-row">
+            <label for="merge-slider" class="setting-label">Treat trains within this many minutes of each other as one continuous closure</label>
+            <span class="setting-value-badge" id="merge-val-badge">10 min</span>
+          </div>
+          <input type="range" id="merge-slider" class="range-slider" min="1" max="20" step="1" value="10" aria-label="Treat trains within this many minutes of each other as one continuous closure">
+          <div class="range-scale">
+            <span>1 min</span>
+            <span>20 min</span>
+          </div>
+        </div>
+
+        <!-- Inline Error / Feedback -->
+        <div id="settings-feedback" class="settings-feedback hidden" role="alert"></div>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="settings-cancel-btn" class="btn-modal btn-cancel" type="button">Cancel</button>
+        <button id="settings-save-btn" class="btn-modal btn-save" type="button">Save</button>
+      </footer>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
