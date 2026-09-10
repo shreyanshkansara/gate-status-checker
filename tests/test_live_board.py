@@ -383,7 +383,7 @@ def test_22731_replay_diagnostic_logs_and_closure(mock_get_live_delay, sample_ga
             "station": {"code": "KAD"},
             "trains": [
                 {
-                    "train": {"number": "22731", "name": "Hyderabad Express"},
+                    "train": {"number": "22731", "name": "Hyderabad Express", "source": "CSMT", "destination": "HYB"},
                     "stop": {"departure": "14:00", "stopType": "pass-through"},
                     "live": {"delayMinutes": 0, "status": "not_started"},
                 }

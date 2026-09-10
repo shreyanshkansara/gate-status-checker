@@ -18,6 +18,30 @@ DEFAULT_WINDOW_MINUTES = 30  # Reduced default from 90m to 30m
 FALLBACK_WINDOW_MINUTES = 90  # Restored 90m window for fallback path where live delays are unknown
 SUSPICIOUS_DELAY_THRESHOLD_MINUTES = 20  # Trains scheduled 20+ min ago claiming delay=0/not_started
 
+# Authenticated Central and Western Railway Mumbai suburban and terminal codes.
+# Closed-set matching for secondary direction inference when timetable sequence is unavailable:
+# - A train terminating at one of these codes is confidently heading UP (towards Mumbai).
+# - A train originating at one of these codes is confidently heading DOWN (away from Mumbai).
+# Source stations on the Deccan / Pune / South side (e.g. JU, AII, SBC, MAS, HYB, HDP) are an open-ended
+# network that cannot be reliably enumerated without false classifications.
+MUMBAI_TERMINAL_CODES = frozenset({
+    "CSMT",  # Chhatrapati Shivaji Maharaj Terminus (CR primary terminal)
+    "LTT",   # Lokmanya Tilak Terminus, Kurla (CR major long-distance terminal)
+    "DR",    # Dadar (CR / WR dual junction & long-distance terminus)
+    "KYN",   # Kalyan Junction (CR main bifurcation for North-East & South-East lines)
+    "TNA",   # Thane (CR major junction & suburban terminal)
+    "PNVL",  # Panvel Junction (Harbour / Konkan / Central Railway junction)
+    "BSR",   # Vasai Road (WR junction connecting to Central Diva-Vasai chord)
+    "BDTS",  # Bandra Terminus (WR long-distance terminus)
+    "MMCT",  # Mumbai Central (WR primary long-distance terminus)
+    "CCG",   # Churchgate (WR suburban terminus)
+    "BVI",   # Borivali (WR major terminal & origin)
+    "ADH",   # Andheri (WR suburban junction & origin)
+    "CLA",   # Kurla Junction (CR suburban & Harbour line junction)
+    "DIVA",  # Diva Junction (CR junction for chord lines)
+    "KJT",   # Karjat (CR suburban terminus at the base of Bhor Ghat)
+})
+
 
 def load_cached_schedule(
     near_station: str,
@@ -234,7 +258,7 @@ def _determine_train_direction(
 ) -> str:
     """
     Determines if a train is UP (Pune -> LNL -> KAD -> Mumbai)
-    or DOWN (Mumbai -> KAD -> LNL -> Pune).
+    or DOWN (Mumbai -> KAD -> LNL -> Pune), or UNKNOWN if ambiguous.
     """
     # Explicit override if present in fixture/data
     if "direction" in train_item and train_item["direction"]:
@@ -242,7 +266,7 @@ def _determine_train_direction(
     if "_direction" in train_item and train_item["_direction"]:
         return str(train_item["_direction"]).upper()
 
-    # Compare station sequence in timetable if LNL data is available
+    # Primary method: Compare station sequence in timetable if LNL data is available
     if lnl_train:
         kad_seq = train_item.get("stop", {}).get("sequence")
         lnl_seq = lnl_train.get("stop", {}).get("sequence")
@@ -250,19 +274,28 @@ def _determine_train_direction(
             # If train reaches LNL at an earlier sequence than KAD, it's heading UP towards Mumbai
             return "UP" if lnl_seq < kad_seq else "DOWN"
 
-    # Fallback to destination/source clues or train number parity
+    # Secondary method: Closed-set Mumbai terminal matching
     train_obj = train_item.get("train", {})
     dest_val = train_obj.get("destination")
-    dest = (dest_val.get("code") if isinstance(dest_val, dict) else (dest_val or "")).upper()
-    if dest in ("CSMT", "LTT", "DR", "BSR", "BDTS", "MMCT", "PNVL", "KYN"):
-        return "UP"
-    src_val = train_obj.get("source")
-    src = (src_val.get("code") if isinstance(src_val, dict) else (src_val or "")).upper()
-    if src in ("PUNE", "SUR", "HYB", "MAS", "SBC", "KOP", "MYS", "MRJ"):
+    dest = (dest_val.get("code") if isinstance(dest_val, dict) else (dest_val or "")).strip().upper()
+    if not dest:
+        to_val = train_item.get("to")
+        dest = (to_val.get("code") if isinstance(to_val, dict) else (to_val or "")).strip().upper()
+
+    if dest in MUMBAI_TERMINAL_CODES:
         return "UP"
 
-    # Default to DOWN
-    return "DOWN"
+    src_val = train_obj.get("source")
+    src = (src_val.get("code") if isinstance(src_val, dict) else (src_val or "")).strip().upper()
+    if not src:
+        from_val = train_item.get("from")
+        src = (from_val.get("code") if isinstance(from_val, dict) else (from_val or "")).strip().upper()
+
+    if src in MUMBAI_TERMINAL_CODES:
+        return "DOWN"
+
+    # If neither sequence nor Mumbai-side closed set matches, do NOT guess.
+    return "UNKNOWN"
 
 
 
@@ -271,6 +304,7 @@ def get_candidate_trains(
     current_datetime: datetime,
     window_minutes: int = DEFAULT_WINDOW_MINUTES,
     data_dir: Optional[Path] = None,
+    ambiguous_excluded: Optional[List[Dict[str, Any]]] = None,
 ) -> List[Dict[str, Any]]:
     """
     Filters cached train schedule board to find candidate trains scheduled
@@ -348,6 +382,20 @@ def get_candidate_trains(
         lnl_counterpart = lnl_lookup.get(train_num)
         direction = _determine_train_direction(item, lnl_counterpart)
 
+        if direction == "UNKNOWN":
+            src_val = train_info.get("source") or item.get("from")
+            src_code = (src_val.get("code") if isinstance(src_val, dict) else (src_val or ""))
+            dest_val = train_info.get("destination") or item.get("to")
+            dest_code = (dest_val.get("code") if isinstance(dest_val, dict) else (dest_val or ""))
+            logger.warning(
+                "Excluded train %s (%s): ambiguous direction (source=%s, destination=%s). "
+                "Direction could not be verified via sequence or Mumbai terminal match.",
+                train_num, train_name, src_code, dest_code,
+            )
+            if ambiguous_excluded is not None:
+                ambiguous_excluded.append(item)
+            continue
+
         lnl_time_str = None
         if lnl_counterpart:
             lnl_time_str = parse_train_time_at_station(lnl_counterpart, "LNL")
@@ -414,6 +462,7 @@ def get_candidate_trains_from_live(
     fallback_window_minutes: int = FALLBACK_WINDOW_MINUTES,
     suspicious_threshold_minutes: int = SUSPICIOUS_DELAY_THRESHOLD_MINUTES,
     data_dir: Optional[Path] = None,
+    ambiguous_excluded: Optional[List[Dict[str, Any]]] = None,
 ) -> List[Dict[str, Any]]:
     """
     Filters real-time live station board data to find candidate trains scheduled
@@ -492,6 +541,20 @@ def get_candidate_trains_from_live(
         # Check LNL counterpart and direction
         lnl_counterpart = lnl_lookup.get(train_num)
         direction = _determine_train_direction(item, lnl_counterpart)
+
+        if direction == "UNKNOWN":
+            src_val = train_info.get("source") or item.get("from")
+            src_code = (src_val.get("code") if isinstance(src_val, dict) else (src_val or ""))
+            dest_val = train_info.get("destination") or item.get("to")
+            dest_code = (dest_val.get("code") if isinstance(dest_val, dict) else (dest_val or ""))
+            logger.warning(
+                "Excluded train %s (%s): ambiguous direction (source=%s, destination=%s). "
+                "Direction could not be verified via sequence or Mumbai terminal match.",
+                train_num, train_name, src_code, dest_code,
+            )
+            if ambiguous_excluded is not None:
+                ambiguous_excluded.append(item)
+            continue
 
         lnl_time_str = None
         if lnl_counterpart:

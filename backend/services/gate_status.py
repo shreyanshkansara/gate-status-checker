@@ -166,6 +166,14 @@ def estimate_gate_status(
     distance_source = gate.get("distance_source", "")
     near_station = gate.get("near_station", "KAD")
 
+    # Modeling Limitation Note (Phase 15):
+    # avg_speed_kmph (default 36 km/h) is applied as a single uniform constant across all train types
+    # (Superfast, Express, Passenger, Freight) and travel directions.
+    # In reality, speed varies significantly through the Bhor Ghat section due to steep gradients (1:37),
+    # catch sidings, speed restrictions, banker locomotive operations, and unscheduled holds (such as an
+    # observed 13-minute unscheduled halt at Khandala). Furthermore, RailRadar's reported delay_minutes
+    # figure can lag behind a train's true physical position by several minutes around such holds.
+    # Therefore, eta_at_gate and gate status are operational approximations rather than precision track circuit signals.
     distance_from_near_km = float(gate.get("distance_from_near_km") or 1.1)
     distance_from_far_km = max(float(segment_km) - distance_from_near_km, 0.0)
     avg_speed_kmph = float(gate.get("avg_speed_kmph") or 36.0)
@@ -322,6 +330,7 @@ def estimate_gate_status(
             if start_dt.tzinfo is None and current_datetime.tzinfo is not None:
                 start_dt = start_dt.replace(tzinfo=current_datetime.tzinfo)
                 end_dt = end_dt.replace(tzinfo=current_datetime.tzinfo)
+                current_dt_cmp = current_datetime
             elif start_dt.tzinfo is not None and current_datetime.tzinfo is None:
                 current_dt_cmp = current_datetime.replace(tzinfo=start_dt.tzinfo)
             else:

@@ -83,23 +83,23 @@ def station_board_schedule():
             "station": {"code": "KAD", "name": "Khandala"},
             "trains": [
                 {
-                    "train": {"number": "1001", "name": "Morning Express"},
+                    "train": {"number": "1001", "name": "Morning Express", "source": "CSMT"},
                     "stop": {"arrival": "08:00", "departure": "08:00", "stopType": "pass-through"},
                 },
                 {
-                    "train": {"number": "1002", "name": "Afternoon Passenger"},
+                    "train": {"number": "1002", "name": "Afternoon Passenger", "source": "CSMT"},
                     "stop": {"arrival": "14:15", "departure": "14:16", "stopType": "halt"},
                 },
                 {
-                    "train": {"number": "1003", "name": "Late Afternoon SF"},
+                    "train": {"number": "1003", "name": "Late Afternoon SF", "source": "CSMT"},
                     "stop": {"arrival": "15:00", "departure": "15:00", "stopType": "pass-through"},
                 },
                 {
-                    "train": {"number": "1004", "name": "Night Mail"},
+                    "train": {"number": "1004", "name": "Night Mail", "source": "CSMT"},
                     "stop": {"arrival": "23:45", "departure": "23:45", "stopType": "pass-through"},
                 },
                 {
-                    "train": {"number": "1005", "name": "Midnight Special"},
+                    "train": {"number": "1005", "name": "Midnight Special", "source": "CSMT"},
                     "stop": {"arrival": "00:20", "departure": "00:20", "stopType": "pass-through"},
                 },
             ],
@@ -190,10 +190,10 @@ def test_fallback_path_window_widening():
         "station_code": "KAD",
         "data": {
             "trains": [
-                {
-                    "train": {"number": "22731", "name": "Hyderabad Express"},
-                    "stop": {"departure": "11:20", "stopType": "pass-through"},
-                }
+                    {
+                        "train": {"number": "22731", "name": "Hyderabad Express", "source": "CSMT"},
+                        "stop": {"departure": "11:20", "stopType": "pass-through"},
+                    }
             ]
         },
     }
@@ -221,14 +221,14 @@ def test_live_path_suspicious_entry_filtering():
         "data": {
             "station": {"code": "KAD"},
             "trains": [
-                {
-                    "train": {"number": "22731", "name": "Hyderabad Express"},
-                    "stop": {"departure": "11:35", "stopType": "pass-through"},
-                    "live": {
-                        "delayMinutes": 0,
-                        "status": "not_started",
-                    },
-                }
+                    {
+                        "train": {"number": "22731", "name": "Hyderabad Express", "source": "CSMT"},
+                        "stop": {"departure": "11:35", "stopType": "pass-through"},
+                        "live": {
+                            "delayMinutes": 0,
+                            "status": "not_started",
+                        },
+                    }
             ],
         }
     }
@@ -242,7 +242,7 @@ def test_live_path_suspicious_entry_filtering():
     assert c["_delay_source"] == "needs_verification"
 
 
-def test_live_path_normal_entry_not_suspicious():
+def test_live_path_normal_entry_not_suspicious(tmp_path):
     """
     Normal live board entries (on-time upcoming train, or running train with reported delay)
     must NOT be flagged as suspicious and must be tagged '_delay_source': 'live_board'.
@@ -252,23 +252,23 @@ def test_live_path_normal_entry_not_suspicious():
         "data": {
             "station": {"code": "KAD"},
             "trains": [
-                # 1. Upcoming on-time train: scheduled in 10 minutes, status not_started
-                {
-                    "train": {"number": "12124", "name": "Deccan Queen"},
-                    "stop": {"departure": "12:10", "stopType": "halt"},
-                    "live": {"delayMinutes": 0, "status": "not_started"},
-                },
-                # 2. Running delayed train: scheduled 25 min ago, 30 min delay -> diff+delay = +5
-                {
-                    "train": {"number": "11008", "name": "Deccan Express"},
-                    "stop": {"departure": "11:35", "stopType": "halt"},
-                    "live": {"delayMinutes": 30, "status": "running"},
-                },
+                    # 1. Upcoming on-time train: scheduled in 10 minutes, status not_started
+                    {
+                        "train": {"number": "12124", "name": "Deccan Queen", "source": "CSMT"},
+                        "stop": {"departure": "12:10", "stopType": "halt"},
+                        "live": {"delayMinutes": 0, "status": "not_started"},
+                    },
+                    # 2. Running delayed train: scheduled 25 min ago, 30 min delay -> diff+delay = +5
+                    {
+                        "train": {"number": "11008", "name": "Deccan Express", "source": "CSMT"},
+                        "stop": {"departure": "11:35", "stopType": "halt"},
+                        "live": {"delayMinutes": 30, "status": "running"},
+                    },
             ],
         }
     }
 
-    candidates = get_candidate_trains_from_live(live_board_data, current_dt, window_minutes=30)
+    candidates = get_candidate_trains_from_live(live_board_data, current_dt, window_minutes=30, data_dir=tmp_path)
     assert len(candidates) == 2
 
     c_12124 = next(c for c in candidates if c["train"]["number"] == "12124")
@@ -278,3 +278,121 @@ def test_live_path_normal_entry_not_suspicious():
     c_11008 = next(c for c in candidates if c["train"]["number"] == "11008")
     assert c_11008["_is_suspicious"] is False
     assert c_11008["_delay_source"] == "live_board"
+
+
+# ==============================================================================
+# Phase 15: Direction detection hardening & UNKNOWN exclusion tests
+# ==============================================================================
+
+def test_direction_lnl_sequence_regression():
+    """
+    When LNL counterpart data is available with timetable sequences,
+    sequence comparison remains the primary authoritative method:
+    - lnl_seq < kad_seq -> UP (passes LNL before KAD)
+    - lnl_seq > kad_seq -> DOWN (passes KAD before LNL)
+    """
+    from backend.services.schedule_filter import _determine_train_direction
+
+    kad_train_up = {"stop": {"sequence": 45}, "train": {"source": "XYZ", "destination": "ABC"}}
+    lnl_train_up = {"stop": {"sequence": 42}}
+    assert _determine_train_direction(kad_train_up, lnl_train_up) == "UP"
+
+    kad_train_down = {"stop": {"sequence": 20}, "train": {"source": "XYZ", "destination": "ABC"}}
+    lnl_train_down = {"stop": {"sequence": 23}}
+    assert _determine_train_direction(kad_train_down, lnl_train_down) == "DOWN"
+
+
+def test_direction_unknown_ambiguous_excluded_and_warned(caplog):
+    """
+    Real spike case (JU -> HDP):
+    When no LNL cross-reference exists and neither source nor destination
+    matches the Mumbai terminal closed set, direction MUST be 'UNKNOWN'
+    and candidate MUST be excluded from candidate list with a WARNING logged.
+    """
+    from backend.services.schedule_filter import _determine_train_direction
+    import logging
+
+    caplog.set_level(logging.WARNING)
+
+    # 1. Direct unit test of direction resolution
+    item_ju_hdp = {
+        "train": {
+            "number": "20495",
+            "name": "Hadapsar SF Express",
+            "source": "JU",
+            "destination": "HDP",
+        },
+        "stop": {"departure": "15:12"},
+    }
+    assert _determine_train_direction(item_ju_hdp, lnl_train=None) == "UNKNOWN"
+
+    # 2. Integration with get_candidate_trains: candidate is excluded
+    current_dt = datetime(2026, 9, 10, 15, 10)
+    schedule = {
+        "station_code": "KAD",
+        "data": {"trains": [item_ju_hdp]},
+    }
+    ambiguous_list = []
+    candidates = get_candidate_trains(schedule, current_dt, window_minutes=30, ambiguous_excluded=ambiguous_list)
+    assert len(candidates) == 0
+    assert len(ambiguous_list) == 1
+    assert ambiguous_list[0]["train"]["number"] == "20495"
+
+    # 3. Verify WARNING log emission
+    assert "Excluded train 20495 (Hadapsar SF Express): ambiguous direction (source=JU, destination=HDP)" in caplog.text
+
+
+def test_direction_mumbai_source_is_down():
+    """
+    When no LNL cross-reference exists, a train originating at an authenticated
+    Mumbai terminal (e.g. LTT -> MAS or CSMT -> BBSN) is confidently classified DOWN.
+    """
+    from backend.services.schedule_filter import _determine_train_direction
+
+    item_ltt = {
+        "train": {
+            "number": "22179",
+            "name": "Chennai Central SF Express",
+            "source": {"code": "LTT", "name": "Lokmanya Tilak Terminus"},
+            "destination": {"code": "MAS", "name": "Chennai Central"},
+        }
+    }
+    assert _determine_train_direction(item_ltt, lnl_train=None) == "DOWN"
+
+    item_csmt = {
+        "train": {
+            "number": "11019",
+            "name": "Konark Express",
+            "source": "CSMT",
+            "destination": "BBSN",
+        }
+    }
+    assert _determine_train_direction(item_csmt, lnl_train=None) == "DOWN"
+
+
+def test_direction_mumbai_destination_is_up():
+    """
+    When no LNL cross-reference exists, a train terminating at an authenticated
+    Mumbai terminal (e.g. PUNE -> CSMT, SBC -> LTT, SUR -> CSMT) is confidently classified UP.
+    """
+    from backend.services.schedule_filter import _determine_train_direction
+
+    item_up = {
+        "train": {
+            "number": "12124",
+            "name": "Deccan Queen",
+            "source": "PUNE",
+            "destination": "CSMT",
+        }
+    }
+    assert _determine_train_direction(item_up, lnl_train=None) == "UP"
+
+    item_pnvl = {
+        "train": {
+            "number": "10112",
+            "name": "Konkan Express",
+            "source": "MAO",
+            "destination": "PNVL",
+        }
+    }
+    assert _determine_train_direction(item_pnvl, lnl_train=None) == "UP"

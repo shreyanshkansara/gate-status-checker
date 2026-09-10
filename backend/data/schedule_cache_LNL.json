@@ -1,5 +1,5 @@
 {
-  "cached_at": "2026-09-07T08:39:11.797806+00:00",
+  "cached_at": "2026-09-10T09:51:45.169029+00:00",
   "station_code": "LNL",
   "success": true,
   "data": {
@@ -40,12 +40,12 @@
           ]
         },
         "stop": {
-          "sequence": 42,
-          "arrival": "00:06",
-          "departure": "00:06",
+          "sequence": 37,
+          "arrival": "00:08",
+          "departure": "00:08",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 126.9,
+          "distance": 126.8,
           "stopType": "pass-through"
         }
       },
@@ -68,9 +68,9 @@
           ]
         },
         "stop": {
-          "sequence": 182,
-          "arrival": "00:21",
-          "departure": "00:21",
+          "sequence": 176,
+          "arrival": "00:24",
+          "departure": "00:24",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1051.5,
@@ -95,9 +95,9 @@
           ]
         },
         "stop": {
-          "sequence": 182,
-          "arrival": "00:21",
-          "departure": "00:21",
+          "sequence": 176,
+          "arrival": "00:24",
+          "departure": "00:24",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1051.5,
@@ -122,9 +122,9 @@
           ]
         },
         "stop": {
-          "sequence": 173,
-          "arrival": "00:21",
-          "departure": "00:21",
+          "sequence": 167,
+          "arrival": "00:24",
+          "departure": "00:24",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1015.9,
@@ -149,12 +149,12 @@
           ]
         },
         "stop": {
-          "sequence": 141,
-          "arrival": "00:21",
-          "departure": "00:21",
+          "sequence": 138,
+          "arrival": "00:24",
+          "departure": "00:24",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 847.1,
+          "distance": 861,
           "stopType": "pass-through"
         }
       },
@@ -177,9 +177,9 @@
           ]
         },
         "stop": {
-          "sequence": 173,
-          "arrival": "00:21",
-          "departure": "00:21",
+          "sequence": 167,
+          "arrival": "00:24",
+          "departure": "00:24",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1015.9,
@@ -205,45 +205,12 @@
           ]
         },
         "stop": {
-          "sequence": 217,
-          "arrival": "00:35",
-          "departure": "00:35",
+          "sequence": 208,
+          "arrival": "00:39",
+          "departure": "00:39",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1446.1,
-          "stopType": "pass-through"
-        }
-      },
-      {
-        "train": {
-          "number": "11013",
-          "name": "Coimbatore Express",
-          "type": "MAIL EXPRESS",
-          "source": {
-            "code": "LTT",
-            "name": "Mumbai LTT"
-          },
-          "destination": {
-            "code": "CBE",
-            "name": "Coimbatore Jn"
-          },
-          "runDays": [
-            "mon",
-            "tue",
-            "wed",
-            "thu",
-            "fri",
-            "sat",
-            "sun"
-          ]
-        },
-        "stop": {
-          "sequence": 32,
-          "arrival": "00:40",
-          "departure": "00:40",
-          "arrivalDay": 2,
-          "departureDay": 2,
-          "distance": 110.2,
+          "distance": 1446,
           "stopType": "pass-through"
         }
       },
@@ -276,8 +243,41 @@
           "departure": "00:42",
           "arrivalDay": 3,
           "departureDay": 3,
-          "distance": 1815.7,
+          "distance": 1812.7,
           "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "11013",
+          "name": "Coimbatore Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "CBE",
+            "name": "Coimbatore Jn"
+          },
+          "runDays": [
+            "mon",
+            "tue",
+            "wed",
+            "thu",
+            "fri",
+            "sat",
+            "sun"
+          ]
+        },
+        "stop": {
+          "sequence": 26,
+          "arrival": "00:43",
+          "departure": "00:43",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 110.2,
+          "stopType": "pass-through"
         }
       },
       {
@@ -299,12 +299,12 @@
           ]
         },
         "stop": {
-          "sequence": 26,
-          "arrival": "00:48",
-          "departure": "00:48",
+          "sequence": 25,
+          "arrival": "00:51",
+          "departure": "00:51",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 92.3,
+          "distance": 92.1,
           "stopType": "pass-through"
         }
       },
@@ -332,9 +332,9 @@
           ]
         },
         "stop": {
-          "sequence": 42,
-          "arrival": "01:05",
-          "departure": "01:05",
+          "sequence": 36,
+          "arrival": "01:08",
+          "departure": "01:08",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 126.9,
@@ -359,12 +359,12 @@
           ]
         },
         "stop": {
-          "sequence": 292,
-          "arrival": "01:08",
-          "departure": "01:08",
+          "sequence": 277,
+          "arrival": "01:11",
+          "departure": "01:11",
           "arrivalDay": 3,
           "departureDay": 3,
-          "distance": 2000.7,
+          "distance": 1995.1,
           "stopType": "pass-through"
         }
       },
@@ -386,12 +386,12 @@
           ]
         },
         "stop": {
-          "sequence": 28,
+          "sequence": 27,
           "arrival": "01:17",
           "departure": "01:20",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 139.2,
+          "distance": 136.2,
           "stopType": "halt"
         }
       },
@@ -413,12 +413,12 @@
           ]
         },
         "stop": {
-          "sequence": 100,
+          "sequence": 97,
           "arrival": "01:20",
           "departure": "01:21",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 774.4,
+          "distance": 781.2,
           "stopType": "halt"
         }
       },
@@ -440,12 +440,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "01:20",
           "departure": "01:22",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -467,12 +467,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "01:20",
           "departure": "01:22",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -494,12 +494,12 @@
           ]
         },
         "stop": {
-          "sequence": 143,
-          "arrival": "01:31",
-          "departure": "01:31",
+          "sequence": 137,
+          "arrival": "01:34",
+          "departure": "01:34",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 903.1,
+          "distance": 886.5,
           "stopType": "pass-through"
         }
       },
@@ -521,12 +521,12 @@
           ]
         },
         "stop": {
-          "sequence": 100,
-          "arrival": "01:37",
-          "departure": "01:37",
+          "sequence": 97,
+          "arrival": "01:36",
+          "departure": "01:36",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 774.4,
+          "distance": 781.2,
           "stopType": "pass-through"
         }
       },
@@ -554,7 +554,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "01:35",
           "departure": "01:37",
           "arrivalDay": 2,
@@ -581,12 +581,12 @@
           ]
         },
         "stop": {
-          "sequence": 28,
-          "arrival": "01:40",
-          "departure": "01:40",
+          "sequence": 27,
+          "arrival": "01:39",
+          "departure": "01:39",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 139.2,
+          "distance": 136.2,
           "stopType": "pass-through"
         }
       },
@@ -614,12 +614,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "01:50",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -642,7 +642,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "01:52",
           "departure": "01:55",
           "arrivalDay": 2,
@@ -680,7 +680,7 @@
           "departure": "01:56",
           "arrivalDay": 3,
           "departureDay": 3,
-          "distance": 1385.5,
+          "distance": 1382.5,
           "stopType": "halt"
         }
       },
@@ -708,12 +708,12 @@
           ]
         },
         "stop": {
-          "sequence": 100,
-          "arrival": "02:02",
-          "departure": "02:02",
+          "sequence": 99,
+          "arrival": "02:00",
+          "departure": "02:00",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 660,
+          "distance": 657.1,
           "stopType": "pass-through"
         }
       },
@@ -735,12 +735,12 @@
           ]
         },
         "stop": {
-          "sequence": 144,
+          "sequence": 142,
           "arrival": "02:00",
           "departure": "02:03",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 883.3,
+          "distance": 897.1,
           "stopType": "halt"
         }
       },
@@ -768,12 +768,12 @@
           ]
         },
         "stop": {
-          "sequence": 104,
+          "sequence": 101,
           "arrival": "02:05",
           "departure": "02:07",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 712.2,
+          "distance": 709.4,
           "stopType": "halt"
         }
       },
@@ -797,7 +797,7 @@
           ]
         },
         "stop": {
-          "sequence": 35,
+          "sequence": 29,
           "arrival": "02:15",
           "departure": "02:17",
           "arrivalDay": 2,
@@ -827,7 +827,7 @@
           ]
         },
         "stop": {
-          "sequence": 35,
+          "sequence": 29,
           "arrival": "02:15",
           "departure": "02:17",
           "arrivalDay": 2,
@@ -854,12 +854,12 @@
           ]
         },
         "stop": {
-          "sequence": 182,
+          "sequence": 176,
           "arrival": "02:25",
           "departure": "02:27",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1186.1,
+          "distance": 1183.1,
           "stopType": "halt"
         }
       },
@@ -883,12 +883,12 @@
           ]
         },
         "stop": {
-          "sequence": 99,
+          "sequence": 98,
           "arrival": "02:25",
           "departure": "02:27",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 659.1,
+          "distance": 656.2,
           "stopType": "halt"
         }
       },
@@ -910,12 +910,12 @@
           ]
         },
         "stop": {
-          "sequence": 187,
-          "arrival": "02:32",
-          "departure": "02:32",
+          "sequence": 184,
+          "arrival": "02:30",
+          "departure": "02:30",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1413,
+          "distance": 1410,
           "stopType": "pass-through"
         }
       },
@@ -937,12 +937,12 @@
           ]
         },
         "stop": {
-          "sequence": 99,
-          "arrival": "02:32",
-          "departure": "02:32",
+          "sequence": 98,
+          "arrival": "02:30",
+          "departure": "02:30",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 659.1,
+          "distance": 656.2,
           "stopType": "pass-through"
         }
       },
@@ -970,12 +970,12 @@
           ]
         },
         "stop": {
-          "sequence": 175,
+          "sequence": 173,
           "arrival": "02:50",
           "departure": "02:52",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1154,
+          "distance": 1151.1,
           "stopType": "halt"
         }
       },
@@ -997,12 +997,12 @@
           ]
         },
         "stop": {
-          "sequence": 147,
-          "arrival": "03:13",
-          "departure": "03:13",
+          "sequence": 144,
+          "arrival": "03:12",
+          "departure": "03:12",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1093.7,
+          "distance": 1090.7,
           "stopType": "pass-through"
         }
       },
@@ -1026,12 +1026,12 @@
           ]
         },
         "stop": {
-          "sequence": 212,
-          "arrival": "03:13",
-          "departure": "03:13",
+          "sequence": 209,
+          "arrival": "03:12",
+          "departure": "03:12",
           "arrivalDay": 3,
           "departureDay": 3,
-          "distance": 1516.2,
+          "distance": 1513.6,
           "stopType": "pass-through"
         }
       },
@@ -1055,12 +1055,12 @@
           ]
         },
         "stop": {
-          "sequence": 215,
-          "arrival": "03:13",
-          "departure": "03:13",
+          "sequence": 214,
+          "arrival": "03:12",
+          "departure": "03:12",
           "arrivalDay": 3,
           "departureDay": 3,
-          "distance": 1686.2,
+          "distance": 1683.2,
           "stopType": "pass-through"
         }
       },
@@ -1083,7 +1083,7 @@
           ]
         },
         "stop": {
-          "sequence": 37,
+          "sequence": 33,
           "arrival": "03:15",
           "departure": "03:20",
           "arrivalDay": 2,
@@ -1110,12 +1110,12 @@
           ]
         },
         "stop": {
-          "sequence": 35,
+          "sequence": 41,
           "arrival": "03:15",
           "departure": "03:20",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 202.6,
+          "distance": 268.3,
           "stopType": "halt"
         }
       },
@@ -1139,12 +1139,12 @@
           ]
         },
         "stop": {
-          "sequence": 81,
+          "sequence": 80,
           "arrival": "03:50",
           "departure": "03:52",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 570.7,
+          "distance": 567.8,
           "stopType": "halt"
         }
       },
@@ -1169,12 +1169,12 @@
           ]
         },
         "stop": {
-          "sequence": 48,
+          "sequence": 47,
           "arrival": "03:50",
           "departure": "03:52",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 322,
+          "distance": 319.1,
           "stopType": "halt"
         }
       },
@@ -1202,12 +1202,12 @@
           ]
         },
         "stop": {
-          "sequence": 50,
-          "arrival": "03:53",
-          "departure": "03:53",
+          "sequence": 49,
+          "arrival": "03:52",
+          "departure": "03:52",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 326.1,
+          "distance": 323.2,
           "stopType": "pass-through"
         }
       },
@@ -1230,9 +1230,9 @@
           ]
         },
         "stop": {
-          "sequence": 170,
-          "arrival": "04:03",
-          "departure": "04:03",
+          "sequence": 162,
+          "arrival": "04:06",
+          "departure": "04:06",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1298.7,
@@ -1257,12 +1257,12 @@
           ]
         },
         "stop": {
-          "sequence": 58,
+          "sequence": 50,
           "arrival": "04:05",
           "departure": "04:08",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 388.7,
+          "distance": 388.6,
           "stopType": "halt"
         }
       },
@@ -1284,12 +1284,12 @@
           ]
         },
         "stop": {
-          "sequence": 58,
+          "sequence": 50,
           "arrival": "04:05",
           "departure": "04:08",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 388.7,
+          "distance": 388.6,
           "stopType": "halt"
         }
       },
@@ -1317,12 +1317,12 @@
           ]
         },
         "stop": {
-          "sequence": 88,
+          "sequence": 87,
           "arrival": "04:12",
           "departure": "04:14",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 622.6,
+          "distance": 619.7,
           "stopType": "halt"
         }
       },
@@ -1350,12 +1350,12 @@
           ]
         },
         "stop": {
-          "sequence": 60,
+          "sequence": 59,
           "arrival": "04:27",
           "departure": "04:29",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 390.2,
+          "distance": 387.2,
           "stopType": "halt"
         }
       },
@@ -1380,12 +1380,12 @@
           ]
         },
         "stop": {
-          "sequence": 58,
-          "arrival": "05:19",
-          "departure": "05:19",
+          "sequence": 57,
+          "arrival": "05:18",
+          "departure": "05:18",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 389.6,
+          "distance": 396.7,
           "stopType": "pass-through"
         }
       },
@@ -1409,12 +1409,12 @@
           ]
         },
         "stop": {
-          "sequence": 73,
-          "arrival": "05:19",
-          "departure": "05:19",
+          "sequence": 71,
+          "arrival": "05:18",
+          "departure": "05:18",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 536.2,
+          "distance": 543.3,
           "stopType": "pass-through"
         }
       },
@@ -1469,12 +1469,12 @@
           ]
         },
         "stop": {
-          "sequence": 16,
+          "sequence": 15,
           "arrival": "05:42",
           "departure": "05:45",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 57.6,
+          "distance": 54.7,
           "stopType": "halt"
         }
       },
@@ -1502,12 +1502,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "06:05",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -1529,12 +1529,12 @@
           ]
         },
         "stop": {
-          "sequence": 106,
+          "sequence": 102,
           "arrival": "06:08",
           "departure": "06:10",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 560.8,
+          "distance": 560.7,
           "stopType": "halt"
         }
       },
@@ -1556,12 +1556,12 @@
           ]
         },
         "stop": {
-          "sequence": 170,
+          "sequence": 163,
           "arrival": "06:08",
           "departure": "06:10",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 991.8,
+          "distance": 991.9,
           "stopType": "halt"
         }
       },
@@ -1583,12 +1583,12 @@
           ]
         },
         "stop": {
-          "sequence": 170,
+          "sequence": 166,
           "arrival": "06:08",
           "departure": "06:10",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 998.3,
+          "distance": 1012.1,
           "stopType": "halt"
         }
       },
@@ -1610,7 +1610,7 @@
           ]
         },
         "stop": {
-          "sequence": 151,
+          "sequence": 146,
           "arrival": "06:08",
           "departure": "06:10",
           "arrivalDay": 2,
@@ -1637,12 +1637,12 @@
           ]
         },
         "stop": {
-          "sequence": 201,
+          "sequence": 195,
           "arrival": "06:08",
           "departure": "06:10",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1291.9,
+          "distance": 1291.8,
           "stopType": "halt"
         }
       },
@@ -1664,12 +1664,12 @@
           ]
         },
         "stop": {
-          "sequence": 106,
+          "sequence": 102,
           "arrival": "06:08",
           "departure": "06:10",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 560.8,
+          "distance": 560.7,
           "stopType": "halt"
         }
       },
@@ -1691,12 +1691,12 @@
           ]
         },
         "stop": {
-          "sequence": 216,
-          "arrival": "06:18",
-          "departure": "06:18",
+          "sequence": 213,
+          "arrival": "06:16",
+          "departure": "06:16",
           "arrivalDay": 3,
           "departureDay": 3,
-          "distance": 1655.7,
+          "distance": 1652.7,
           "stopType": "pass-through"
         }
       },
@@ -1720,12 +1720,12 @@
           ]
         },
         "stop": {
-          "sequence": 103,
+          "sequence": 102,
           "arrival": "06:17",
           "departure": "06:20",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 566.8,
+          "distance": 560.7,
           "stopType": "halt"
         }
       },
@@ -1780,12 +1780,12 @@
           ]
         },
         "stop": {
-          "sequence": 221,
+          "sequence": 216,
           "arrival": "06:37",
           "departure": "06:40",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1576.6,
+          "distance": 1579.2,
           "stopType": "halt"
         }
       },
@@ -1808,12 +1808,12 @@
           ]
         },
         "stop": {
-          "sequence": 180,
-          "arrival": "06:46",
-          "departure": "06:46",
+          "sequence": 174,
+          "arrival": "06:49",
+          "departure": "06:49",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1227.3,
+          "distance": 1227.2,
           "stopType": "pass-through"
         }
       },
@@ -1841,12 +1841,12 @@
           ]
         },
         "stop": {
-          "sequence": 81,
-          "arrival": "06:54",
-          "departure": "06:54",
+          "sequence": 79,
+          "arrival": "06:55",
+          "departure": "06:55",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 608.5,
+          "distance": 615.6,
           "stopType": "pass-through"
         }
       },
@@ -1874,12 +1874,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "07:05",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -1907,12 +1907,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "07:13",
           "departure": "07:15",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -1973,7 +1973,7 @@
           ]
         },
         "stop": {
-          "sequence": 146,
+          "sequence": 142,
           "arrival": "07:42",
           "departure": "07:45",
           "arrivalDay": 2,
@@ -2006,12 +2006,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "07:50",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -2039,7 +2039,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "07:58",
           "departure": "08:00",
           "arrivalDay": 1,
@@ -2072,12 +2072,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "08:06",
           "departure": "08:07",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -2138,12 +2138,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "08:28",
           "departure": "08:30",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -2166,12 +2166,12 @@
           ]
         },
         "stop": {
-          "sequence": 210,
+          "sequence": 198,
           "arrival": "08:28",
           "departure": "08:30",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1494.8,
+          "distance": 1481.6,
           "stopType": "halt"
         }
       },
@@ -2199,12 +2199,12 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 37,
           "arrival": "08:48",
           "departure": "08:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 126.9,
+          "distance": 122.6,
           "stopType": "halt"
         }
       },
@@ -2227,12 +2227,12 @@
           ]
         },
         "stop": {
-          "sequence": 182,
+          "sequence": 176,
           "arrival": "08:49",
           "departure": "08:51",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1186.1,
+          "distance": 1183.1,
           "stopType": "halt"
         }
       },
@@ -2254,12 +2254,12 @@
           ]
         },
         "stop": {
-          "sequence": 164,
-          "arrival": "08:56",
-          "departure": "08:56",
+          "sequence": 163,
+          "arrival": "08:55",
+          "departure": "08:55",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1215.3,
+          "distance": 1295.9,
           "stopType": "pass-through"
         }
       },
@@ -2281,12 +2281,12 @@
           ]
         },
         "stop": {
-          "sequence": 102,
-          "arrival": "09:06",
-          "departure": "09:06",
+          "sequence": 101,
+          "arrival": "09:04",
+          "departure": "09:04",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 671.4,
+          "distance": 668.4,
           "stopType": "pass-through"
         }
       },
@@ -2314,7 +2314,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "09:13",
           "departure": "09:15",
           "arrivalDay": 1,
@@ -2342,12 +2342,12 @@
           ]
         },
         "stop": {
-          "sequence": 99,
-          "arrival": "09:16",
-          "departure": "09:16",
+          "sequence": 98,
+          "arrival": "09:15",
+          "departure": "09:15",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 659.1,
+          "distance": 656.2,
           "stopType": "pass-through"
         }
       },
@@ -2369,12 +2369,12 @@
           ]
         },
         "stop": {
-          "sequence": 163,
-          "arrival": "09:20",
-          "departure": "09:20",
+          "sequence": 161,
+          "arrival": "09:18",
+          "departure": "09:18",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1148.3,
+          "distance": 1145.5,
           "stopType": "pass-through"
         }
       },
@@ -2396,12 +2396,12 @@
           ]
         },
         "stop": {
-          "sequence": 176,
-          "arrival": "09:20",
-          "departure": "09:20",
+          "sequence": 174,
+          "arrival": "09:18",
+          "departure": "09:18",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1231.5,
+          "distance": 1228.5,
           "stopType": "pass-through"
         }
       },
@@ -2429,12 +2429,12 @@
           ]
         },
         "stop": {
-          "sequence": 17,
+          "sequence": 16,
           "arrival": "09:25",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 61.2,
+          "distance": 58.3,
           "stopType": "destination"
         }
       },
@@ -2456,12 +2456,12 @@
           ]
         },
         "stop": {
-          "sequence": 159,
+          "sequence": 164,
           "arrival": "09:23",
           "departure": "09:25",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1171.5,
+          "distance": 1234.7,
           "stopType": "halt"
         }
       },
@@ -2483,12 +2483,12 @@
           ]
         },
         "stop": {
-          "sequence": 215,
+          "sequence": 212,
           "arrival": "09:23",
           "departure": "09:25",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1516.6,
+          "distance": 1513.6,
           "stopType": "halt"
         }
       },
@@ -2516,12 +2516,12 @@
           ]
         },
         "stop": {
-          "sequence": 174,
-          "arrival": "09:31",
-          "departure": "09:31",
+          "sequence": 171,
+          "arrival": "09:30",
+          "departure": "09:30",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1152.4,
+          "distance": 1149.4,
           "stopType": "pass-through"
         }
       },
@@ -2549,7 +2549,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "09:38",
           "departure": "09:40",
           "arrivalDay": 1,
@@ -2582,12 +2582,12 @@
           ]
         },
         "stop": {
-          "sequence": 100,
+          "sequence": 99,
           "arrival": "09:58",
           "departure": "10:00",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 660,
+          "distance": 657.1,
           "stopType": "halt"
         }
       },
@@ -2647,12 +2647,12 @@
           ]
         },
         "stop": {
-          "sequence": 50,
-          "arrival": "10:22",
-          "departure": "10:22",
+          "sequence": 49,
+          "arrival": "10:20",
+          "departure": "10:20",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 326.1,
+          "distance": 323.2,
           "stopType": "pass-through"
         }
       },
@@ -2680,7 +2680,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "10:33",
           "departure": "10:35",
           "arrivalDay": 1,
@@ -2708,12 +2708,12 @@
           ]
         },
         "stop": {
-          "sequence": 163,
-          "arrival": "10:53",
-          "departure": "10:53",
+          "sequence": 161,
+          "arrival": "10:51",
+          "departure": "10:51",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1148.3,
+          "distance": 1145.5,
           "stopType": "pass-through"
         }
       },
@@ -2741,7 +2741,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "11:08",
           "departure": "11:10",
           "arrivalDay": 1,
@@ -2774,12 +2774,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "11:20",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -2807,12 +2807,12 @@
           ]
         },
         "stop": {
-          "sequence": 178,
-          "arrival": "11:28",
-          "departure": "11:28",
+          "sequence": 175,
+          "arrival": "11:27",
+          "departure": "11:27",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1384.8,
+          "distance": 1381.9,
           "stopType": "pass-through"
         }
       },
@@ -2866,12 +2866,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
-          "arrival": "11:55",
-          "departure": "11:55",
+          "sequence": 17,
+          "arrival": "11:53",
+          "departure": "11:53",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "pass-through"
         }
       },
@@ -2893,12 +2893,12 @@
           ]
         },
         "stop": {
-          "sequence": 53,
+          "sequence": 52,
           "arrival": "12:03",
           "departure": "12:05",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 343.2,
+          "distance": 340.3,
           "stopType": "halt"
         }
       },
@@ -2920,12 +2920,12 @@
           ]
         },
         "stop": {
-          "sequence": 266,
-          "arrival": "12:08",
-          "departure": "12:08",
+          "sequence": 261,
+          "arrival": "12:07",
+          "departure": "12:07",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1558.6,
+          "distance": 1552.2,
           "stopType": "pass-through"
         }
       },
@@ -2947,12 +2947,12 @@
           ]
         },
         "stop": {
-          "sequence": 258,
-          "arrival": "12:08",
-          "departure": "12:08",
+          "sequence": 261,
+          "arrival": "12:07",
+          "departure": "12:07",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1529.8,
+          "distance": 1552.2,
           "stopType": "pass-through"
         }
       },
@@ -2974,12 +2974,12 @@
           ]
         },
         "stop": {
-          "sequence": 174,
-          "arrival": "12:08",
-          "departure": "12:08",
+          "sequence": 171,
+          "arrival": "12:07",
+          "departure": "12:07",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1152.4,
+          "distance": 1149.4,
           "stopType": "pass-through"
         }
       },
@@ -3001,12 +3001,12 @@
           ]
         },
         "stop": {
-          "sequence": 174,
-          "arrival": "12:08",
-          "departure": "12:08",
+          "sequence": 171,
+          "arrival": "12:07",
+          "departure": "12:07",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1152.4,
+          "distance": 1149.4,
           "stopType": "pass-through"
         }
       },
@@ -3028,12 +3028,12 @@
           ]
         },
         "stop": {
-          "sequence": 174,
-          "arrival": "12:08",
-          "departure": "12:08",
+          "sequence": 171,
+          "arrival": "12:07",
+          "departure": "12:07",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1152.4,
+          "distance": 1149.4,
           "stopType": "pass-through"
         }
       },
@@ -3056,12 +3056,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
-          "arrival": "12:18",
-          "departure": "12:18",
+          "sequence": 17,
+          "arrival": "12:16",
+          "departure": "12:16",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "pass-through"
         }
       },
@@ -3089,12 +3089,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "12:37",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -3122,12 +3122,12 @@
           ]
         },
         "stop": {
-          "sequence": 174,
+          "sequence": 171,
           "arrival": "12:40",
           "departure": "12:42",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1152.4,
+          "distance": 1149.4,
           "stopType": "halt"
         }
       },
@@ -3149,12 +3149,12 @@
           ]
         },
         "stop": {
-          "sequence": 210,
+          "sequence": 198,
           "arrival": "12:42",
           "departure": "12:45",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1494.8,
+          "distance": 1481.6,
           "stopType": "halt"
         }
       },
@@ -3182,12 +3182,12 @@
           ]
         },
         "stop": {
-          "sequence": 17,
+          "sequence": 16,
           "arrival": "13:20",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 61.2,
+          "distance": 58.3,
           "stopType": "destination"
         }
       },
@@ -3242,7 +3242,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "15:00",
           "departure": "15:02",
           "arrivalDay": 1,
@@ -3269,12 +3269,12 @@
           ]
         },
         "stop": {
-          "sequence": 221,
+          "sequence": 215,
           "arrival": "15:00",
           "departure": "15:03",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1576.6,
+          "distance": 1579.2,
           "stopType": "halt"
         }
       },
@@ -3302,7 +3302,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "15:08",
           "departure": "15:10",
           "arrivalDay": 1,
@@ -3329,12 +3329,12 @@
           ]
         },
         "stop": {
-          "sequence": 32,
-          "arrival": "15:11",
-          "departure": "15:11",
+          "sequence": 27,
+          "arrival": "15:14",
+          "departure": "15:14",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 106.2,
+          "distance": 106,
           "stopType": "pass-through"
         }
       },
@@ -3362,7 +3362,7 @@
           ]
         },
         "stop": {
-          "sequence": 174,
+          "sequence": 168,
           "arrival": "15:16",
           "departure": "15:18",
           "arrivalDay": 2,
@@ -3389,9 +3389,9 @@
           ]
         },
         "stop": {
-          "sequence": 32,
-          "arrival": "15:21",
-          "departure": "15:21",
+          "sequence": 26,
+          "arrival": "15:23",
+          "departure": "15:23",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 110.2,
@@ -3416,9 +3416,9 @@
           ]
         },
         "stop": {
-          "sequence": 176,
-          "arrival": "15:21",
-          "departure": "15:21",
+          "sequence": 173,
+          "arrival": "15:24",
+          "departure": "15:24",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1306.2,
@@ -3443,9 +3443,9 @@
           ]
         },
         "stop": {
-          "sequence": 32,
-          "arrival": "15:25",
-          "departure": "15:25",
+          "sequence": 26,
+          "arrival": "15:28",
+          "departure": "15:28",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 110.2,
@@ -3470,9 +3470,9 @@
           ]
         },
         "stop": {
-          "sequence": 159,
-          "arrival": "15:25",
-          "departure": "15:25",
+          "sequence": 155,
+          "arrival": "15:28",
+          "departure": "15:28",
           "arrivalDay": 2,
           "departureDay": 2,
           "distance": 1025,
@@ -3497,12 +3497,12 @@
           ]
         },
         "stop": {
-          "sequence": 32,
-          "arrival": "15:27",
-          "departure": "15:27",
+          "sequence": 27,
+          "arrival": "15:29",
+          "departure": "15:29",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 106.2,
+          "distance": 106,
           "stopType": "pass-through"
         }
       },
@@ -3524,7 +3524,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "15:28",
           "departure": "15:30",
           "arrivalDay": 1,
@@ -3552,7 +3552,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "15:28",
           "departure": "15:30",
           "arrivalDay": 1,
@@ -3612,7 +3612,7 @@
           ]
         },
         "stop": {
-          "sequence": 199,
+          "sequence": 194,
           "arrival": "15:58",
           "departure": "16:00",
           "arrivalDay": 2,
@@ -3645,12 +3645,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "16:20",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -3675,12 +3675,12 @@
           ]
         },
         "stop": {
-          "sequence": 215,
-          "arrival": "16:23",
-          "departure": "16:23",
+          "sequence": 209,
+          "arrival": "16:21",
+          "departure": "16:21",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1753.2,
+          "distance": 1750.6,
           "stopType": "pass-through"
         }
       },
@@ -3702,12 +3702,12 @@
           ]
         },
         "stop": {
-          "sequence": 263,
+          "sequence": 260,
           "arrival": "16:22",
           "departure": "16:25",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1807.5,
+          "distance": 1804.5,
           "stopType": "halt"
         }
       },
@@ -3730,12 +3730,12 @@
           ]
         },
         "stop": {
-          "sequence": 252,
+          "sequence": 248,
           "arrival": "16:22",
           "departure": "16:25",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1815.5,
+          "distance": 1816.1,
           "stopType": "halt"
         }
       },
@@ -3763,7 +3763,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "16:27",
           "departure": "16:30",
           "arrivalDay": 1,
@@ -3796,12 +3796,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "16:30",
           "departure": "16:32",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -3829,7 +3829,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "16:43",
           "departure": "16:45",
           "arrivalDay": 1,
@@ -3862,12 +3862,12 @@
           ]
         },
         "stop": {
-          "sequence": 28,
+          "sequence": 27,
           "arrival": "16:42",
           "departure": "16:45",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 139.2,
+          "distance": 136.2,
           "stopType": "halt"
         }
       },
@@ -3889,12 +3889,12 @@
           ]
         },
         "stop": {
-          "sequence": 217,
+          "sequence": 208,
           "arrival": "16:58",
           "departure": "17:00",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1446.1,
+          "distance": 1446,
           "stopType": "halt"
         }
       },
@@ -3916,7 +3916,7 @@
           ]
         },
         "stop": {
-          "sequence": 231,
+          "sequence": 224,
           "arrival": "16:58",
           "departure": "17:00",
           "arrivalDay": 2,
@@ -3949,12 +3949,12 @@
           ]
         },
         "stop": {
-          "sequence": 60,
+          "sequence": 59,
           "arrival": "17:13",
           "departure": "17:15",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 390.2,
+          "distance": 387.2,
           "stopType": "halt"
         }
       },
@@ -3976,12 +3976,12 @@
           ]
         },
         "stop": {
-          "sequence": 170,
-          "arrival": "17:15",
-          "departure": "17:15",
+          "sequence": 163,
+          "arrival": "17:19",
+          "departure": "17:19",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1073.5,
+          "distance": 1073.4,
           "stopType": "pass-through"
         }
       },
@@ -4004,12 +4004,12 @@
           ]
         },
         "stop": {
-          "sequence": 201,
-          "arrival": "17:15",
-          "departure": "17:15",
+          "sequence": 195,
+          "arrival": "17:19",
+          "departure": "17:19",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1291.9,
+          "distance": 1291.8,
           "stopType": "pass-through"
         }
       },
@@ -4037,12 +4037,12 @@
           ]
         },
         "stop": {
-          "sequence": 134,
+          "sequence": 132,
           "arrival": "17:23",
           "departure": "17:25",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1007.6,
+          "distance": 1004.6,
           "stopType": "halt"
         }
       },
@@ -4097,12 +4097,12 @@
           ]
         },
         "stop": {
-          "sequence": 167,
+          "sequence": 168,
           "arrival": "17:27",
           "departure": "17:30",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1055.3,
+          "distance": 1096.4,
           "stopType": "halt"
         }
       },
@@ -4130,7 +4130,7 @@
           ]
         },
         "stop": {
-          "sequence": 10,
+          "sequence": 9,
           "arrival": "17:41",
           "departure": "17:43",
           "arrivalDay": 1,
@@ -4163,12 +4163,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "17:45",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -4190,12 +4190,12 @@
           ]
         },
         "stop": {
-          "sequence": 254,
+          "sequence": 250,
           "arrival": "17:53",
           "departure": "17:55",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1515.1,
+          "distance": 1512.2,
           "stopType": "halt"
         }
       },
@@ -4218,12 +4218,12 @@
           ]
         },
         "stop": {
-          "sequence": 155,
+          "sequence": 154,
           "arrival": "17:53",
           "departure": "17:55",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1098.7,
+          "distance": 1095.7,
           "stopType": "halt"
         }
       },
@@ -4245,12 +4245,12 @@
           ]
         },
         "stop": {
-          "sequence": 174,
-          "arrival": "17:57",
-          "departure": "17:57",
+          "sequence": 171,
+          "arrival": "17:56",
+          "departure": "17:56",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1152.4,
+          "distance": 1149.4,
           "stopType": "pass-through"
         }
       },
@@ -4272,12 +4272,12 @@
           ]
         },
         "stop": {
-          "sequence": 225,
-          "arrival": "17:57",
-          "departure": "17:57",
+          "sequence": 222,
+          "arrival": "17:56",
+          "departure": "17:56",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1585.3,
+          "distance": 1585.9,
           "stopType": "pass-through"
         }
       },
@@ -4304,9 +4304,9 @@
           ]
         },
         "stop": {
-          "sequence": 42,
-          "arrival": "18:05",
-          "departure": "18:05",
+          "sequence": 36,
+          "arrival": "18:07",
+          "departure": "18:07",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 126.9,
@@ -4364,12 +4364,12 @@
           ]
         },
         "stop": {
-          "sequence": 16,
+          "sequence": 15,
           "arrival": "18:27",
           "departure": "18:30",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 57.6,
+          "distance": 54.7,
           "stopType": "halt"
         }
       },
@@ -4397,67 +4397,13 @@
           ]
         },
         "stop": {
-          "sequence": 17,
+          "sequence": 16,
           "arrival": "18:38",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 61.2,
+          "distance": 58.3,
           "stopType": "destination"
-        }
-      },
-      {
-        "train": {
-          "number": "20920",
-          "name": "M.g.r Chennai Central Weekly SF Express",
-          "type": "Superfast Express",
-          "source": {
-            "code": "EKNR",
-            "name": "Ekta Nagar"
-          },
-          "destination": {
-            "code": "MAS",
-            "name": "MGR Chennai Central"
-          },
-          "runDays": [
-            "wed"
-          ]
-        },
-        "stop": {
-          "sequence": 92,
-          "arrival": "18:39",
-          "departure": "18:39",
-          "arrivalDay": 1,
-          "departureDay": 1,
-          "distance": 509.3,
-          "stopType": "pass-through"
-        }
-      },
-      {
-        "train": {
-          "number": "20668",
-          "name": "Yesvantpur Superfast Express",
-          "type": "SUPERFAST",
-          "source": {
-            "code": "KWP",
-            "name": "Khatipura"
-          },
-          "destination": {
-            "code": "YPR",
-            "name": "Yesvantpur Jn"
-          },
-          "runDays": [
-            "sat"
-          ]
-        },
-        "stop": {
-          "sequence": 198,
-          "arrival": "18:39",
-          "departure": "18:39",
-          "arrivalDay": 2,
-          "departureDay": 2,
-          "distance": 1247.9,
-          "stopType": "pass-through"
         }
       },
       {
@@ -4484,12 +4430,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "18:38",
           "departure": "18:40",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -4511,12 +4457,39 @@
           ]
         },
         "stop": {
-          "sequence": 100,
-          "arrival": "18:40",
-          "departure": "18:40",
+          "sequence": 102,
+          "arrival": "18:43",
+          "departure": "18:43",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 519.6,
+          "distance": 560.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20920",
+          "name": "M.g.r Chennai Central Weekly SF Express",
+          "type": "Superfast Express",
+          "source": {
+            "code": "EKNR",
+            "name": "Ekta Nagar"
+          },
+          "destination": {
+            "code": "MAS",
+            "name": "MGR Chennai Central"
+          },
+          "runDays": [
+            "wed"
+          ]
+        },
+        "stop": {
+          "sequence": 95,
+          "arrival": "18:43",
+          "departure": "18:43",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 544,
           "stopType": "pass-through"
         }
       },
@@ -4538,12 +4511,12 @@
           ]
         },
         "stop": {
-          "sequence": 106,
-          "arrival": "18:40",
-          "departure": "18:40",
+          "sequence": 102,
+          "arrival": "18:43",
+          "departure": "18:43",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 560.8,
+          "distance": 560.7,
           "stopType": "pass-through"
         }
       },
@@ -4565,12 +4538,39 @@
           ]
         },
         "stop": {
-          "sequence": 106,
-          "arrival": "18:40",
-          "departure": "18:40",
+          "sequence": 102,
+          "arrival": "18:43",
+          "departure": "18:43",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 560.8,
+          "distance": 560.7,
+          "stopType": "pass-through"
+        }
+      },
+      {
+        "train": {
+          "number": "20668",
+          "name": "Yesvantpur Superfast Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "KWP",
+            "name": "Khatipura"
+          },
+          "destination": {
+            "code": "YPR",
+            "name": "Yesvantpur Jn"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 193,
+          "arrival": "18:43",
+          "departure": "18:43",
+          "arrivalDay": 2,
+          "departureDay": 2,
+          "distance": 1247.9,
           "stopType": "pass-through"
         }
       },
@@ -4592,12 +4592,12 @@
           ]
         },
         "stop": {
-          "sequence": 106,
-          "arrival": "18:42",
-          "departure": "18:42",
+          "sequence": 102,
+          "arrival": "18:45",
+          "departure": "18:45",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 560.8,
+          "distance": 560.7,
           "stopType": "pass-through"
         }
       },
@@ -4630,7 +4630,7 @@
           "departure": "18:48",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 123.4,
+          "distance": 122.6,
           "stopType": "halt"
         }
       },
@@ -4652,12 +4652,12 @@
           ]
         },
         "stop": {
-          "sequence": 16,
+          "sequence": 15,
           "arrival": "18:53",
           "departure": "18:55",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 57.6,
+          "distance": 54.7,
           "stopType": "halt"
         }
       },
@@ -4680,12 +4680,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
-          "arrival": "18:59",
-          "departure": "18:59",
+          "sequence": 17,
+          "arrival": "18:57",
+          "departure": "18:57",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "pass-through"
         }
       },
@@ -4746,12 +4746,12 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 34,
           "arrival": "19:18",
           "departure": "19:20",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 122.9,
+          "distance": 103.8,
           "stopType": "halt"
         }
       },
@@ -4779,12 +4779,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "19:27",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -4812,12 +4812,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "19:28",
           "departure": "19:30",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -4856,6 +4856,33 @@
       },
       {
         "train": {
+          "number": "12756",
+          "name": "Kakinada Port Superfast Express",
+          "type": "SUPERFAST",
+          "source": {
+            "code": "BVC",
+            "name": "Bhavnagar Terminus"
+          },
+          "destination": {
+            "code": "COA",
+            "name": "Kakinada Port"
+          },
+          "runDays": [
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 146,
+          "arrival": "19:37",
+          "departure": "19:40",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 858.6,
+          "stopType": "halt"
+        }
+      },
+      {
+        "train": {
           "number": "16613",
           "name": "Coimbatore Express",
           "type": "MAIL EXPRESS",
@@ -4872,12 +4899,12 @@
           ]
         },
         "stop": {
-          "sequence": 149,
-          "arrival": "19:37",
-          "departure": "19:37",
+          "sequence": 143,
+          "arrival": "19:40",
+          "departure": "19:40",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 806.7,
+          "distance": 806.6,
           "stopType": "pass-through"
         }
       },
@@ -4899,12 +4926,12 @@
           ]
         },
         "stop": {
-          "sequence": 179,
-          "arrival": "19:37",
-          "departure": "19:37",
+          "sequence": 173,
+          "arrival": "19:40",
+          "departure": "19:40",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 1047.6,
+          "distance": 1058.5,
           "stopType": "pass-through"
         }
       },
@@ -4926,40 +4953,13 @@
           ]
         },
         "stop": {
-          "sequence": 171,
-          "arrival": "19:37",
-          "departure": "19:37",
-          "arrivalDay": 1,
-          "departureDay": 1,
-          "distance": 1005.7,
-          "stopType": "pass-through"
-        }
-      },
-      {
-        "train": {
-          "number": "12756",
-          "name": "Kakinada Port Superfast Express",
-          "type": "SUPERFAST",
-          "source": {
-            "code": "BVC",
-            "name": "Bhavnagar Terminus"
-          },
-          "destination": {
-            "code": "COA",
-            "name": "Kakinada Port"
-          },
-          "runDays": [
-            "sat"
-          ]
-        },
-        "stop": {
-          "sequence": 152,
-          "arrival": "19:37",
+          "sequence": 168,
+          "arrival": "19:40",
           "departure": "19:40",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 858.7,
-          "stopType": "halt"
+          "distance": 1019.4,
+          "stopType": "pass-through"
         }
       },
       {
@@ -4982,12 +4982,12 @@
           ]
         },
         "stop": {
-          "sequence": 149,
+          "sequence": 143,
           "arrival": "19:37",
           "departure": "19:40",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 806.7,
+          "distance": 806.6,
           "stopType": "halt"
         }
       },
@@ -5010,12 +5010,12 @@
           ]
         },
         "stop": {
-          "sequence": 175,
-          "arrival": "20:03",
-          "departure": "20:03",
+          "sequence": 174,
+          "arrival": "20:01",
+          "departure": "20:01",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1231.5,
+          "distance": 1228.5,
           "stopType": "pass-through"
         }
       },
@@ -5037,12 +5037,12 @@
           ]
         },
         "stop": {
-          "sequence": 162,
-          "arrival": "20:03",
-          "departure": "20:03",
+          "sequence": 160,
+          "arrival": "20:01",
+          "departure": "20:01",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1162.9,
+          "distance": 1160,
           "stopType": "pass-through"
         }
       },
@@ -5064,12 +5064,12 @@
           ]
         },
         "stop": {
-          "sequence": 162,
-          "arrival": "20:03",
-          "departure": "20:03",
+          "sequence": 160,
+          "arrival": "20:01",
+          "departure": "20:01",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1162.9,
+          "distance": 1160,
           "stopType": "pass-through"
         }
       },
@@ -5092,11 +5092,11 @@
         },
         "stop": {
           "sequence": 152,
-          "arrival": "20:03",
-          "departure": "20:03",
+          "arrival": "20:01",
+          "departure": "20:01",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1093.2,
+          "distance": 1090.3,
           "stopType": "pass-through"
         }
       },
@@ -5120,11 +5120,11 @@
         },
         "stop": {
           "sequence": 152,
-          "arrival": "20:03",
-          "departure": "20:03",
+          "arrival": "20:01",
+          "departure": "20:01",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1093.2,
+          "distance": 1090.3,
           "stopType": "pass-through"
         }
       },
@@ -5147,12 +5147,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
-          "arrival": "20:08",
-          "departure": "20:08",
+          "sequence": 17,
+          "arrival": "20:06",
+          "departure": "20:06",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "pass-through"
         }
       },
@@ -5180,7 +5180,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "20:18",
           "departure": "20:20",
           "arrivalDay": 1,
@@ -5213,12 +5213,12 @@
           ]
         },
         "stop": {
-          "sequence": 19,
+          "sequence": 18,
           "arrival": "20:23",
           "departure": "20:25",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 69.4,
+          "distance": 66.5,
           "stopType": "halt"
         }
       },
@@ -5246,12 +5246,12 @@
           ]
         },
         "stop": {
-          "sequence": 17,
+          "sequence": 16,
           "arrival": "20:30",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 61.2,
+          "distance": 58.3,
           "stopType": "destination"
         }
       },
@@ -5306,12 +5306,12 @@
           ]
         },
         "stop": {
-          "sequence": 60,
+          "sequence": 59,
           "arrival": "20:48",
           "departure": "20:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 390.2,
+          "distance": 387.2,
           "stopType": "halt"
         }
       },
@@ -5333,12 +5333,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "20:48",
           "departure": "20:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -5360,12 +5360,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "20:48",
           "departure": "20:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -5387,12 +5387,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "20:48",
           "departure": "20:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -5414,12 +5414,12 @@
           ]
         },
         "stop": {
-          "sequence": 53,
+          "sequence": 52,
           "arrival": "20:48",
           "departure": "20:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 343.2,
+          "distance": 340.3,
           "stopType": "halt"
         }
       },
@@ -5441,12 +5441,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "20:48",
           "departure": "20:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -5474,7 +5474,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "20:56",
           "departure": "20:58",
           "arrivalDay": 1,
@@ -5507,12 +5507,12 @@
           ]
         },
         "stop": {
-          "sequence": 17,
+          "sequence": 16,
           "arrival": "21:30",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 61.2,
+          "distance": 58.3,
           "stopType": "destination"
         }
       },
@@ -5569,12 +5569,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "21:47",
           "departure": "21:50",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "halt"
         }
       },
@@ -5602,12 +5602,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "21:57",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -5668,12 +5668,12 @@
           ]
         },
         "stop": {
-          "sequence": 17,
+          "sequence": 16,
           "arrival": "22:25",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 61.2,
+          "distance": 58.3,
           "stopType": "destination"
         }
       },
@@ -5728,12 +5728,12 @@
           ]
         },
         "stop": {
-          "sequence": 210,
+          "sequence": 197,
           "arrival": "22:40",
           "departure": "22:45",
           "arrivalDay": 2,
           "departureDay": 2,
-          "distance": 1494.8,
+          "distance": 1492.2,
           "stopType": "halt"
         }
       },
@@ -5761,42 +5761,12 @@
           ]
         },
         "stop": {
-          "sequence": 42,
-          "arrival": "22:46",
-          "departure": "22:46",
+          "sequence": 36,
+          "arrival": "22:47",
+          "departure": "22:47",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 126.9,
-          "stopType": "pass-through"
-        }
-      },
-      {
-        "train": {
-          "number": "16339",
-          "name": "Nagercoil Express",
-          "type": "MAIL EXPRESS",
-          "source": {
-            "code": "LTT",
-            "name": "Mumbai LTT"
-          },
-          "destination": {
-            "code": "NCJ",
-            "name": "Nagercoil Jn"
-          },
-          "runDays": [
-            "tue",
-            "wed",
-            "thu",
-            "sat"
-          ]
-        },
-        "stop": {
-          "sequence": 32,
-          "arrival": "23:01",
-          "departure": "23:01",
-          "arrivalDay": 1,
-          "departureDay": 1,
-          "distance": 110.2,
           "stopType": "pass-through"
         }
       },
@@ -5824,13 +5794,43 @@
           ]
         },
         "stop": {
-          "sequence": 35,
+          "sequence": 30,
           "arrival": "23:00",
           "departure": "23:02",
           "arrivalDay": 1,
           "departureDay": 1,
-          "distance": 114,
+          "distance": 113.7,
           "stopType": "halt"
+        }
+      },
+      {
+        "train": {
+          "number": "16339",
+          "name": "Nagercoil Express",
+          "type": "MAIL EXPRESS",
+          "source": {
+            "code": "LTT",
+            "name": "Mumbai LTT"
+          },
+          "destination": {
+            "code": "NCJ",
+            "name": "Nagercoil Jn"
+          },
+          "runDays": [
+            "tue",
+            "wed",
+            "thu",
+            "sat"
+          ]
+        },
+        "stop": {
+          "sequence": 26,
+          "arrival": "23:03",
+          "departure": "23:03",
+          "arrivalDay": 1,
+          "departureDay": 1,
+          "distance": 110.2,
+          "stopType": "pass-through"
         }
       },
       {
@@ -5851,7 +5851,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "23:13",
           "departure": "23:15",
           "arrivalDay": 1,
@@ -5879,7 +5879,7 @@
           ]
         },
         "stop": {
-          "sequence": 32,
+          "sequence": 26,
           "arrival": "23:13",
           "departure": "23:15",
           "arrivalDay": 1,
@@ -5909,9 +5909,9 @@
           ]
         },
         "stop": {
-          "sequence": 42,
-          "arrival": "23:16",
-          "departure": "23:16",
+          "sequence": 36,
+          "arrival": "23:18",
+          "departure": "23:18",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 126.9,
@@ -5938,9 +5938,9 @@
           ]
         },
         "stop": {
-          "sequence": 42,
-          "arrival": "23:16",
-          "departure": "23:16",
+          "sequence": 36,
+          "arrival": "23:18",
+          "departure": "23:18",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 126.9,
@@ -5971,12 +5971,12 @@
           ]
         },
         "stop": {
-          "sequence": 18,
+          "sequence": 17,
           "arrival": "23:30",
           "departure": null,
           "arrivalDay": 1,
           "departureDay": null,
-          "distance": 63.8,
+          "distance": 60.8,
           "stopType": "destination"
         }
       },
@@ -6000,9 +6000,9 @@
           ]
         },
         "stop": {
-          "sequence": 35,
-          "arrival": "23:34",
-          "departure": "23:34",
+          "sequence": 29,
+          "arrival": "23:36",
+          "departure": "23:36",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 118,
@@ -6029,9 +6029,9 @@
           ]
         },
         "stop": {
-          "sequence": 35,
-          "arrival": "23:34",
-          "departure": "23:34",
+          "sequence": 29,
+          "arrival": "23:36",
+          "departure": "23:36",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 118,
@@ -6056,9 +6056,9 @@
           ]
         },
         "stop": {
-          "sequence": 35,
-          "arrival": "23:34",
-          "departure": "23:34",
+          "sequence": 29,
+          "arrival": "23:36",
+          "departure": "23:36",
           "arrivalDay": 1,
           "departureDay": 1,
           "distance": 118,
@@ -6122,7 +6122,7 @@
           ]
         },
         "stop": {
-          "sequence": 42,
+          "sequence": 36,
           "arrival": "23:51",
           "departure": "23:53",
           "arrivalDay": 1,
@@ -6136,9 +6136,9 @@
     "includeIntermediate": true
   },
   "meta": {
-    "timestamp": "2026-09-07T14:09:11+05:30",
-    "traceId": "28645df6-dff9-41eb-9643-6732d7e7fd45",
+    "timestamp": "2026-09-10T15:21:43+05:30",
+    "traceId": "7e8bcbba-5e19-4706-8101-8776eba0a1db",
     "source": "database",
-    "executionTime": 8
+    "executionTime": 17
   }
 }

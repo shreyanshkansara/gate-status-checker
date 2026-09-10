@@ -159,6 +159,7 @@ async def get_gate_status():
     data_source = "live"
     live_calls_count = 0
     candidates = []
+    ambiguous_excluded = []
 
     # 2. Primary path: Live station board
     try:
@@ -166,12 +167,23 @@ async def get_gate_status():
         live_calls_count += 1
         data_source = "live"
         candidates = get_candidate_trains_from_live(
-            live_board_data, current_dt, window_minutes=30, data_dir=DATA_DIR
+            live_board_data,
+            current_dt,
+            window_minutes=30,
+            data_dir=DATA_DIR,
+            ambiguous_excluded=ambiguous_excluded,
         )
-        logger.info(
-            "[REQUEST /gate/status] Loaded live station board for %s (1 RailRadar call made, data_source=live)",
-            near_station,
-        )
+        if ambiguous_excluded:
+            logger.info(
+                "[REQUEST /gate/status] Loaded live station board for %s (1 RailRadar call made, data_source=live, ambiguous_direction_excluded=%d)",
+                near_station,
+                len(ambiguous_excluded),
+            )
+        else:
+            logger.info(
+                "[REQUEST /gate/status] Loaded live station board for %s (1 RailRadar call made, data_source=live)",
+                near_station,
+            )
     except RailRadarError as exc:
         logger.warning(
             "[REQUEST /gate/status] Live station board call failed for %s (%s). Falling back to cached schedule.",
@@ -186,7 +198,11 @@ async def get_gate_status():
             # so a wider window is necessary to ensure severely delayed trains
             # are not prematurely dropped before their live delay can be evaluated.
             candidates = get_candidate_trains(
-                schedule_data, current_dt, window_minutes=FALLBACK_WINDOW_MINUTES, data_dir=DATA_DIR
+                schedule_data,
+                current_dt,
+                window_minutes=FALLBACK_WINDOW_MINUTES,
+                data_dir=DATA_DIR,
+                ambiguous_excluded=ambiguous_excluded,
             )
         except StaleScheduleError as stale_exc:
             logger.warning("[REQUEST /gate/status] Schedule cache stale or missing: %s", stale_exc)
@@ -241,15 +257,28 @@ async def get_gate_status():
         )
 
     # 4. If no candidate trains, return likely_open
+    extra_ambiguous = f", ambiguous_direction_excluded={len(ambiguous_excluded)}" if ambiguous_excluded else ""
     if not candidates:
         if data_source == "live":
-            logger.info(
-                "[REQUEST /gate/status] Made 1 RailRadar live API call(s) (live station board; no candidate trains in +/- 30m window)"
-            )
+            if extra_ambiguous:
+                logger.info(
+                    "[REQUEST /gate/status] Made 1 RailRadar live API call(s) (live station board; no candidate trains in +/- 30m window%s)",
+                    extra_ambiguous,
+                )
+            else:
+                logger.info(
+                    "[REQUEST /gate/status] Made 1 RailRadar live API call(s) (live station board; no candidate trains in +/- 30m window)"
+                )
         else:
-            logger.info(
-                "[REQUEST /gate/status] Made 0 RailRadar live API call(s) (cached fallback; no candidate trains in +/- 30m window)"
-            )
+            if extra_ambiguous:
+                logger.info(
+                    "[REQUEST /gate/status] Made 0 RailRadar live API call(s) (cached fallback; no candidate trains in +/- 30m window%s)",
+                    extra_ambiguous,
+                )
+            else:
+                logger.info(
+                    "[REQUEST /gate/status] Made 0 RailRadar live API call(s) (cached fallback; no candidate trains in +/- 30m window)"
+                )
 
         return {
             "status": "likely_open",
@@ -275,13 +304,23 @@ async def get_gate_status():
         for c in candidates
     ]
     needed_calls = sum(1 for c in candidates if c.get("_delay_source") != "live_board")
-    logger.info(
-        "[REQUEST /gate/status] Evaluating %d candidate train(s): %s (data_source=%s, %d per-candidate live call(s) required)",
-        len(candidates),
-        train_summary,
-        data_source,
-        needed_calls,
-    )
+    if extra_ambiguous:
+        logger.info(
+            "[REQUEST /gate/status] Evaluating %d candidate train(s): %s (data_source=%s, %d per-candidate live call(s) required%s)",
+            len(candidates),
+            train_summary,
+            data_source,
+            needed_calls,
+            extra_ambiguous,
+        )
+    else:
+        logger.info(
+            "[REQUEST /gate/status] Evaluating %d candidate train(s): %s (data_source=%s, %d per-candidate live call(s) required)",
+            len(candidates),
+            train_summary,
+            data_source,
+            needed_calls,
+        )
 
     segment_km = float(stations.get("_reference", {}).get("KAD_LNL_segment_km", 3.0)) if stations else 3.0
     result = estimate_gate_status(

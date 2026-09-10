@@ -1,5 +1,5 @@
 {
-  "cached_at": "2026-09-07T08:39:12.035724+00:00",
+  "cached_at": "2026-09-10T09:51:46.002093+00:00",
   "city": "Mumbai",
   "success": true,
   "data": {
@@ -93,9 +93,9 @@
     "96115": "Karjat Mumbai EMU"
   },
   "meta": {
-    "timestamp": "2026-09-07T14:09:12+05:30",
-    "traceId": "4481b417-a3ea-4eda-ba77-e58531a36dab",
+    "timestamp": "2026-09-10T15:21:44+05:30",
+    "traceId": "f1966092-cf27-4fce-80f9-449b9ce614ec",
     "source": "database",
-    "executionTime": 122
+    "executionTime": 73
   }
 }

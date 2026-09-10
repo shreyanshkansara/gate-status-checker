@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from unittest.mock import patch, MagicMock
 import pytest
 import httpx
@@ -487,6 +487,59 @@ def test_departed_train_negative_minutes_sorts_first(mock_live, sample_gate):
     res = estimate_gate_status(sample_gate, candidates, curr_dt, api_key="k")
     assert [t["train_number"] for t in res["trains"]] == ["T_past5", "T_past1", "T_future"]
     assert res["trains"][0]["minutes_from_now"] < res["trains"][1]["minutes_from_now"] < res["trains"][2]["minutes_from_now"]
+
+
+@pytest.mark.parametrize(
+    "interval_aware,current_dt_aware,dt_in_interval,expected_status",
+    [
+        # Naive interval, Aware current_dt (regression test for Issue B UnboundLocalError)
+        (False, True, True, "likely_closed"),
+        (False, True, False, "likely_open"),
+        # Aware interval, Naive current_dt
+        (True, False, True, "likely_closed"),
+        (True, False, False, "likely_open"),
+        # Aware interval, Aware current_dt
+        (True, True, True, "likely_closed"),
+        (True, True, False, "likely_open"),
+        # Naive interval, Naive current_dt
+        (False, False, True, "likely_closed"),
+        (False, False, False, "likely_open"),
+    ],
+)
+@patch("backend.services.gate_status.compute_merged_closure_intervals")
+def test_closed_intervals_timezone_comparability_matrix(
+    mock_merge, interval_aware, current_dt_aware, dt_in_interval, expected_status, sample_gate
+):
+    """
+    Validates timezone comparability when evaluating gate closure across closed_intervals.
+    Specifically tests the fix for Issue B (UnboundLocalError when start_dt is naive and current_datetime is aware),
+    as well as all four permutations of tz-aware and tz-naive interval/datetime objects.
+    """
+    tz = timezone.utc
+    if interval_aware:
+        start_str = "2026-09-06T12:00:00+00:00"
+        end_str = "2026-09-06T12:10:00+00:00"
+    else:
+        start_str = "2026-09-06T12:00:00"
+        end_str = "2026-09-06T12:10:00"
+
+    mock_merge.return_value = [
+        {
+            "interval_start": start_str,
+            "interval_end": end_str,
+            "train_numbers": ["12124", "22105"],
+            "is_merged": True,
+        }
+    ]
+
+    minute = 5 if dt_in_interval else 25
+    if current_dt_aware:
+        curr_dt = datetime(2026, 9, 6, 12, minute, tzinfo=tz)
+    else:
+        curr_dt = datetime(2026, 9, 6, 12, minute)
+
+    res = estimate_gate_status(sample_gate, [], curr_dt, api_key="k")
+    assert res["status"] == expected_status
 
 
 

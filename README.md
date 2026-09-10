@@ -36,6 +36,8 @@ on the Indian Railways Central Railway line (Mumbai–Pune corridor).
    - Storage: Local plain JSON files (no DB server required)
 6. **Estimated Distances Only**:
    Gate distances from adjacent stations are rough visual estimates (not surveyed or official Indian Railways chainage values) and are surfaced with an explicit "Estimate" disclaimer wherever displayed.
+7. **Flat-Speed Modeling Limitation**:
+   Gate transit times are computed using a uniform average speed constant (default 36 km/h) across all trains and directions. Because trains negotiating the Bhor Ghat incline experience substantial operational variations—including steep 1:37 gradients, catch sidings, banker locomotive attachments, speed restrictions, and unscheduled halts (e.g. observed 13-minute holds at Khandala)—and because live delay feeds can lag behind a train's physical movement by several minutes around such holds, the displayed gate status and train ETAs represent reasonable operational approximations, not precision signaling telemetry.
 
 ---
 
