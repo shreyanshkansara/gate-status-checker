@@ -1,7 +1,10 @@
 from datetime import datetime, timezone, timedelta
 import json
+import logging
 from pathlib import Path
 from typing import Any, Dict, List, Optional
+
+logger = logging.getLogger(__name__)
 
 
 class StaleScheduleError(Exception):
@@ -12,6 +15,8 @@ class StaleScheduleError(Exception):
 DEFAULT_DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 DEFAULT_MAX_AGE_DAYS = 14
 DEFAULT_WINDOW_MINUTES = 30  # Reduced default from 90m to 30m
+FALLBACK_WINDOW_MINUTES = 90  # Restored 90m window for fallback path where live delays are unknown
+SUSPICIOUS_DELAY_THRESHOLD_MINUTES = 20  # Trains scheduled 20+ min ago claiming delay=0/not_started
 
 
 def load_cached_schedule(
@@ -328,10 +333,15 @@ def get_candidate_trains(
 
         train_info = item.get("train", {})
         train_num = str(train_info.get("number") or item.get("train_number") or "").strip()
+        train_name = train_info.get("name") or item.get("train_name") or f"Train {train_num}"
 
         # Scheduled time at near station (KAD)
         kad_time_str = parse_train_time_at_station(item, near_station)
         if not kad_time_str:
+            logger.debug(
+                "Candidate %s (%s): diff=None delay=None in_window=False runDays_ok=None suspicious=False -> REJECTED: no_scheduled_time",
+                train_num, train_name,
+            )
             continue
 
         # Check LNL counterpart and direction
@@ -349,30 +359,50 @@ def get_candidate_trains(
         eval_time_str = (lnl_time_str if (direction == "UP" and lnl_time_str) else kad_time_str)
         diff = _calculate_minute_difference(eval_time_str, current_datetime)
         if diff is None:
+            logger.debug(
+                "Candidate %s (%s): diff=None delay=None in_window=False runDays_ok=None suspicious=False -> REJECTED: invalid_time_diff",
+                train_num, train_name,
+            )
             continue
 
-        if abs(diff) <= window_minutes:
-            # Check runDays if specified (e.g. ['mon', 'tue'])
-            run_days = train_info.get("runDays")
-            if isinstance(run_days, list) and len(run_days) > 0:
-                train_dt = current_datetime + timedelta(minutes=diff)
-                train_weekday = train_dt.strftime("%a").lower()
-                normalized_days = [str(d).strip().lower() for d in run_days]
-                if train_weekday not in normalized_days:
-                    continue
+        is_in_window = abs(diff) <= window_minutes
+        run_days_ok = True
+        run_days = train_info.get("runDays")
+        if isinstance(run_days, list) and len(run_days) > 0:
+            train_dt = current_datetime + timedelta(minutes=diff)
+            train_weekday = train_dt.strftime("%a").lower()
+            normalized_days = [str(d).strip().lower() for d in run_days]
+            if train_weekday not in normalized_days:
+                run_days_ok = False
 
-            candidate = dict(item)
-            stop_info = item.get("stop", {})
-            stop_type = stop_info.get("stopType", "halt")
-            candidate["direction"] = direction
-            candidate["_direction"] = direction
-            candidate["_scheduled_time"] = kad_time_str
-            candidate["_scheduled_time_kad"] = kad_time_str
-            candidate["_scheduled_time_lnl"] = lnl_time_str
-            candidate["_diff_minutes"] = diff
-            candidate["_is_pass_through"] = (stop_type == "pass-through")
-            candidate["_stop_type"] = stop_type
-            candidates.append(candidate)
+        if not is_in_window:
+            rejection_reason = f"outside_window(abs({diff:.1f})>{window_minutes}m)"
+        elif not run_days_ok:
+            rejection_reason = "run_days_mismatch"
+        else:
+            rejection_reason = None
+
+        decision = "ACCEPTED" if (is_in_window and run_days_ok) else f"REJECTED: {rejection_reason}"
+        logger.debug(
+            "Candidate %s (%s): diff=%.1f delay=None in_window=%s runDays_ok=%s suspicious=False -> %s",
+            train_num, train_name, diff, is_in_window, run_days_ok, decision,
+        )
+
+        if not (is_in_window and run_days_ok):
+            continue
+
+        candidate = dict(item)
+        stop_info = item.get("stop", {})
+        stop_type = stop_info.get("stopType", "halt")
+        candidate["direction"] = direction
+        candidate["_direction"] = direction
+        candidate["_scheduled_time"] = kad_time_str
+        candidate["_scheduled_time_kad"] = kad_time_str
+        candidate["_scheduled_time_lnl"] = lnl_time_str
+        candidate["_diff_minutes"] = diff
+        candidate["_is_pass_through"] = (stop_type == "pass-through")
+        candidate["_stop_type"] = stop_type
+        candidates.append(candidate)
 
     return candidates
 
@@ -381,6 +411,8 @@ def get_candidate_trains_from_live(
     live_board_data: Dict[str, Any],
     current_datetime: datetime,
     window_minutes: int = DEFAULT_WINDOW_MINUTES,
+    fallback_window_minutes: int = FALLBACK_WINDOW_MINUTES,
+    suspicious_threshold_minutes: int = SUSPICIOUS_DELAY_THRESHOLD_MINUTES,
     data_dir: Optional[Path] = None,
 ) -> List[Dict[str, Any]]:
     """
@@ -443,6 +475,7 @@ def get_candidate_trains_from_live(
 
         train_info = item.get("train", {})
         train_num = str(train_info.get("number") or item.get("train_number") or "").strip()
+        train_name = train_info.get("name") or item.get("train_name") or f"Train {train_num}"
 
         # Scheduled time at near station (KAD)
         kad_time_str = parse_train_time_at_station(item, near_station)
@@ -450,6 +483,10 @@ def get_candidate_trains_from_live(
             stop_info = item.get("stop", {})
             kad_time_str = stop_info.get("departure") or stop_info.get("arrival")
         if not kad_time_str:
+            logger.debug(
+                "Candidate %s (%s): diff=None delay=None in_window=False runDays_ok=None suspicious=False -> REJECTED: no_scheduled_time",
+                train_num, train_name,
+            )
             continue
 
         # Check LNL counterpart and direction
@@ -480,41 +517,75 @@ def get_candidate_trains_from_live(
         eval_time_str = (lnl_time_str if (direction == "UP" and lnl_time_str) else kad_time_str)
         diff = _calculate_minute_difference(eval_time_str, current_datetime)
         if diff is None:
+            logger.debug(
+                "Candidate %s (%s): diff=None delay=%s in_window=False runDays_ok=None suspicious=False -> REJECTED: invalid_time_diff",
+                train_num, train_name, delay_minutes,
+            )
             continue
 
-        # Check both scheduled diff and delayed diff:
-        is_in_window = (abs(diff) <= window_minutes) or (abs(diff + delay_minutes) <= window_minutes)
+        # Check both scheduled diff and delayed diff, guarding against suspicious delay=0 misclassification:
+        is_suspicious = (
+            diff <= -suspicious_threshold_minutes
+            and (delay_minutes == 0 or live_status in ("not_started", "yet_to_start", "scheduled"))
+        )
 
-        if is_in_window:
-            # Check runDays if specified
-            run_days = train_info.get("runDays")
-            if isinstance(run_days, list) and len(run_days) > 0:
-                train_dt = current_datetime + timedelta(minutes=diff)
-                train_weekday = train_dt.strftime("%a").lower()
-                normalized_days = [str(d).strip().lower() for d in run_days]
-                if train_weekday not in normalized_days:
-                    continue
+        if is_suspicious:
+            # Widen window for suspicious entries so they survive to per-train verification
+            is_in_window = abs(diff) <= fallback_window_minutes
+        else:
+            is_in_window = (abs(diff) <= window_minutes) or (abs(diff + delay_minutes) <= window_minutes)
 
-            candidate = dict(item)
-            stop_info = item.get("stop", {})
-            is_halt = stop_info.get("isHalt")
-            stop_type = stop_info.get("stopType") or ("pass-through" if is_halt is False else "halt")
+        run_days_ok = True
+        run_days = train_info.get("runDays")
+        if isinstance(run_days, list) and len(run_days) > 0:
+            train_dt = current_datetime + timedelta(minutes=diff)
+            train_weekday = train_dt.strftime("%a").lower()
+            normalized_days = [str(d).strip().lower() for d in run_days]
+            if train_weekday not in normalized_days:
+                run_days_ok = False
 
-            candidate["direction"] = direction
-            candidate["_direction"] = direction
-            candidate["_scheduled_time"] = kad_time_str
-            candidate["_scheduled_time_kad"] = kad_time_str
-            candidate["_scheduled_time_lnl"] = lnl_time_str
-            candidate["_diff_minutes"] = diff
-            candidate["_is_pass_through"] = (is_halt is False or stop_type == "pass-through")
-            candidate["_stop_type"] = stop_type
+        if not is_in_window:
+            rejection_reason = f"outside_window(diff={diff:.1f},delay={delay_minutes})"
+        elif not run_days_ok:
+            rejection_reason = "run_days_mismatch"
+        else:
+            rejection_reason = None
 
-            # Live board delay integration
+        decision = "ACCEPTED" if (is_in_window and run_days_ok) else f"REJECTED: {rejection_reason}"
+        logger.debug(
+            "Candidate %s (%s): diff=%.1f delay=%s in_window=%s runDays_ok=%s suspicious=%s -> %s",
+            train_num, train_name, diff, delay_minutes, is_in_window, run_days_ok, is_suspicious, decision,
+        )
+
+        if not (is_in_window and run_days_ok):
+            continue
+
+        candidate = dict(item)
+        stop_info = item.get("stop", {})
+        is_halt = stop_info.get("isHalt")
+        stop_type = stop_info.get("stopType") or ("pass-through" if is_halt is False else "halt")
+
+        candidate["direction"] = direction
+        candidate["_direction"] = direction
+        candidate["_scheduled_time"] = kad_time_str
+        candidate["_scheduled_time_kad"] = kad_time_str
+        candidate["_scheduled_time_lnl"] = lnl_time_str
+        candidate["_diff_minutes"] = diff
+        candidate["_is_pass_through"] = (is_halt is False or stop_type == "pass-through")
+        candidate["_stop_type"] = stop_type
+
+        # Live board delay integration:
+        # For suspicious entries, do not trust bundled delay=0 / not_started. Tag as "needs_verification"
+        # so estimate_gate_status calls get_live_delay for a fresh, authoritative reading.
+        if is_suspicious:
+            candidate["_delay_source"] = "needs_verification"
+        else:
             candidate["_delay_source"] = "live_board"
-            candidate["delay_minutes"] = delay_minutes
-            candidate["_delay_minutes"] = delay_minutes
-            candidate["_live_status"] = live_status
-            candidates.append(candidate)
+        candidate["_is_suspicious"] = is_suspicious
+        candidate["delay_minutes"] = delay_minutes
+        candidate["_delay_minutes"] = delay_minutes
+        candidate["_live_status"] = live_status
+        candidates.append(candidate)
 
     return candidates
 

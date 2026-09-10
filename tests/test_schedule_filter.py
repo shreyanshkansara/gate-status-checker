@@ -10,7 +10,10 @@ from backend.services.schedule_filter import (
     StaleScheduleError,
     load_cached_schedule,
     get_candidate_trains,
+    get_candidate_trains_from_live,
     parse_train_time_at_station,
+    FALLBACK_WINDOW_MINUTES,
+    SUSPICIOUS_DELAY_THRESHOLD_MINUTES,
 )
 
 
@@ -168,3 +171,110 @@ def test_zero_network_calls_guarantee(monkeypatch, temp_data_dir, station_board_
     # 2. get_candidate_trains must not use network
     candidates = get_candidate_trains(station_board_schedule, datetime(2026, 9, 6, 14, 30))
     assert len(candidates) == 2
+
+
+# ==============================================================================
+# Phase 14: Fallback-path windowing + Suspicious live entry tests
+# ==============================================================================
+
+def test_fallback_path_window_widening():
+    """
+    Test fallback-path windowing:
+    A train scheduled 40 minutes in the past relative to current_datetime
+    falls outside the old 30-minute window (confirming the bug),
+    but is accepted under FALLBACK_WINDOW_MINUTES=90.
+    """
+    current_dt = datetime(2026, 9, 10, 12, 0)
+    # Train scheduled at 11:20 (diff = -40 min)
+    schedule = {
+        "station_code": "KAD",
+        "data": {
+            "trains": [
+                {
+                    "train": {"number": "22731", "name": "Hyderabad Express"},
+                    "stop": {"departure": "11:20", "stopType": "pass-through"},
+                }
+            ]
+        },
+    }
+
+    # Old 30-minute default excludes the train
+    candidates_old = get_candidate_trains(schedule, current_dt, window_minutes=30)
+    assert len(candidates_old) == 0
+
+    # With FALLBACK_WINDOW_MINUTES (90m), candidate is retained
+    candidates_widened = get_candidate_trains(schedule, current_dt, window_minutes=FALLBACK_WINDOW_MINUTES)
+    assert len(candidates_widened) == 1
+    assert candidates_widened[0]["train"]["number"] == "22731"
+    assert candidates_widened[0]["_diff_minutes"] == -40
+
+
+def test_live_path_suspicious_entry_filtering():
+    """
+    A live board entry scheduled 25 minutes in the past with delay_minutes=0
+    and status 'not_started' must be flagged as suspicious and tagged
+    '_delay_source': 'needs_verification'.
+    """
+    current_dt = datetime(2026, 9, 10, 12, 0)
+    # Train scheduled at 11:35 (diff = -25 min)
+    live_board_data = {
+        "data": {
+            "station": {"code": "KAD"},
+            "trains": [
+                {
+                    "train": {"number": "22731", "name": "Hyderabad Express"},
+                    "stop": {"departure": "11:35", "stopType": "pass-through"},
+                    "live": {
+                        "delayMinutes": 0,
+                        "status": "not_started",
+                    },
+                }
+            ],
+        }
+    }
+
+    candidates = get_candidate_trains_from_live(live_board_data, current_dt, window_minutes=30)
+    assert len(candidates) == 1
+    c = candidates[0]
+    assert c["train"]["number"] == "22731"
+    assert c["_diff_minutes"] == -25
+    assert c["_is_suspicious"] is True
+    assert c["_delay_source"] == "needs_verification"
+
+
+def test_live_path_normal_entry_not_suspicious():
+    """
+    Normal live board entries (on-time upcoming train, or running train with reported delay)
+    must NOT be flagged as suspicious and must be tagged '_delay_source': 'live_board'.
+    """
+    current_dt = datetime(2026, 9, 10, 12, 0)
+    live_board_data = {
+        "data": {
+            "station": {"code": "KAD"},
+            "trains": [
+                # 1. Upcoming on-time train: scheduled in 10 minutes, status not_started
+                {
+                    "train": {"number": "12124", "name": "Deccan Queen"},
+                    "stop": {"departure": "12:10", "stopType": "halt"},
+                    "live": {"delayMinutes": 0, "status": "not_started"},
+                },
+                # 2. Running delayed train: scheduled 25 min ago, 30 min delay -> diff+delay = +5
+                {
+                    "train": {"number": "11008", "name": "Deccan Express"},
+                    "stop": {"departure": "11:35", "stopType": "halt"},
+                    "live": {"delayMinutes": 30, "status": "running"},
+                },
+            ],
+        }
+    }
+
+    candidates = get_candidate_trains_from_live(live_board_data, current_dt, window_minutes=30)
+    assert len(candidates) == 2
+
+    c_12124 = next(c for c in candidates if c["train"]["number"] == "12124")
+    assert c_12124["_is_suspicious"] is False
+    assert c_12124["_delay_source"] == "live_board"
+
+    c_11008 = next(c for c in candidates if c["train"]["number"] == "11008")
+    assert c_11008["_is_suspicious"] is False
+    assert c_11008["_delay_source"] == "live_board"

@@ -1,5 +1,6 @@
 from datetime import datetime, timezone, timedelta
 import json
+import logging
 from pathlib import Path
 import tempfile
 from unittest.mock import patch, MagicMock
@@ -121,9 +122,12 @@ def test_gate_status_live_board_failure_falls_back_to_cached_schedule(
     assert data["distance_source"] == "visual_proportion_estimate"
     assert data["distance_from_near_km"] == 1.1
     assert len(data["trains"]) == 1
-    assert data["trains"][0]["train_number"] == "11008"
     # Fallback candidate triggers get_live_delay
     mock_get_live_delay.assert_called_once_with("11008", api_key=None)
+    # Verify fallback call explicitly uses 90-minute window
+    mock_get_candidates.assert_called_once()
+    _, call_kwargs = mock_get_candidates.call_args
+    assert call_kwargs.get("window_minutes") == 90
 
 
 # ==============================================================================
@@ -287,3 +291,126 @@ def test_load_cached_local_trains_staleness():
 
         with pytest.raises(StaleScheduleError):
             load_cached_local_trains(data_dir=tmp_dir, max_age_days=14)
+
+
+# ==============================================================================
+# Phase 14: Suspicious entry live verification & regression tests
+# ==============================================================================
+@patch("backend.services.gate_status.get_live_delay")
+def test_suspicious_entry_triggers_get_live_delay_in_estimate_gate_status(mock_get_live_delay, sample_gate):
+    """
+    A train flagged with _delay_source='needs_verification' (suspicious multi-day/delayed train)
+    must bypass the live-board delay-skipping logic and trigger a call to get_live_delay
+    for authoritative status and delay.
+    """
+    current_dt = datetime(2026, 9, 10, 12, 0)
+    suspicious_candidate = {
+        "train": {"number": "22731", "name": "Hyderabad Express"},
+        "direction": "DOWN",
+        "_direction": "DOWN",
+        "_scheduled_time": "11:35",
+        "_scheduled_time_kad": "11:35",
+        "_delay_source": "needs_verification",
+        "_is_suspicious": True,
+        "delay_minutes": 0,
+        "_delay_minutes": 0,
+        "_live_status": "not_started",
+    }
+
+    mock_get_live_delay.return_value = {
+        "train_number": "22731",
+        "delay_minutes": 27,
+        "status": "running",
+    }
+
+    result = estimate_gate_status(sample_gate, [suspicious_candidate], current_dt)
+
+    mock_get_live_delay.assert_called_once_with("22731", api_key=None)
+    assert result["_live_calls_made"] == 1
+    assert len(result["trains"]) == 1
+    train = result["trains"][0]
+    assert train["train_number"] == "22731"
+    assert train["delay_minutes"] == 27
+    assert train["live_status"] == "running"
+
+
+@patch("backend.services.gate_status.get_live_delay")
+def test_normal_entry_preserves_zero_call_optimization(mock_get_live_delay, sample_gate):
+    """
+    Regression test: a normal, trustworthy live board candidate (_delay_source='live_board')
+    must NOT trigger get_live_delay, preserving the Phase 8 call-reduction optimization.
+    """
+    current_dt = datetime(2026, 9, 10, 12, 0)
+    normal_candidate = {
+        "train": {"number": "12124", "name": "Deccan Queen"},
+        "direction": "UP",
+        "_direction": "UP",
+        "_scheduled_time": "12:05",
+        "_scheduled_time_lnl": "12:00",
+        "_delay_source": "live_board",
+        "_is_suspicious": False,
+        "delay_minutes": 5,
+        "_delay_minutes": 5,
+        "_live_status": "running",
+    }
+
+    result = estimate_gate_status(sample_gate, [normal_candidate], current_dt)
+
+    mock_get_live_delay.assert_not_called()
+    assert result["_live_calls_made"] == 0
+    assert len(result["trains"]) == 1
+    assert result["trains"][0]["delay_minutes"] == 5
+
+
+@patch("backend.services.gate_status.get_live_delay")
+def test_22731_replay_diagnostic_logs_and_closure(mock_get_live_delay, sample_gate, caplog):
+    """
+    Step 5 Manual Verification Replay:
+    Train 22731 (~40 minutes late, multi-day service) scheduled at 14:00 at KAD.
+    Current evaluation time is 14:38 (diff = -38 min).
+    The live board erroneously marks it delay=0 and status='not_started'.
+    Verify:
+    1. It is detected as suspicious and included in candidate list.
+    2. DEBUG log explicitly captures diff=-38.0, delay=0, suspicious=True -> ACCEPTED.
+    3. estimate_gate_status queries get_live_delay for it and receives real delay (40m late).
+    4. Since train is due at gate in ~3.8 minutes (14:41.8), it is tracked and affects gate status.
+    """
+    caplog.set_level(logging.DEBUG)
+    current_dt = datetime(2026, 9, 10, 14, 38)
+
+    live_board_data = {
+        "data": {
+            "station": {"code": "KAD"},
+            "trains": [
+                {
+                    "train": {"number": "22731", "name": "Hyderabad Express"},
+                    "stop": {"departure": "14:00", "stopType": "pass-through"},
+                    "live": {"delayMinutes": 0, "status": "not_started"},
+                }
+            ],
+        }
+    }
+
+    candidates = get_candidate_trains_from_live(live_board_data, current_dt, window_minutes=30)
+    assert len(candidates) == 1
+    assert candidates[0]["_delay_source"] == "needs_verification"
+    assert candidates[0]["_is_suspicious"] is True
+
+    # Confirm diagnostic log line presence
+    assert "Candidate 22731 (Hyderabad Express): diff=-38.0 delay=0 in_window=True runDays_ok=True suspicious=True -> ACCEPTED" in caplog.text
+
+    # Mock authoritative live delay (40 min late)
+    mock_get_live_delay.return_value = {
+        "train_number": "22731",
+        "delay_minutes": 40,
+        "status": "running",
+    }
+
+    result = estimate_gate_status(sample_gate, candidates, current_dt)
+    assert result["_live_calls_made"] == 1
+    assert len(result["trains"]) == 1
+    t = result["trains"][0]
+    assert t["train_number"] == "22731"
+    assert t["delay_minutes"] == 40
+    # ETA at gate: 14:00 + 40m = 14:40 + (1.1/36 * 60 = 1.83m) -> 14:41.83 (+3.83 min from 14:38)
+    assert t["minutes_from_now"] == 3.8

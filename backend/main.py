@@ -16,6 +16,7 @@ from backend.services.schedule_filter import (
     get_candidate_trains,
     get_candidate_trains_from_live,
     StaleScheduleError,
+    FALLBACK_WINDOW_MINUTES,
 )
 from backend.services.gate_status import (
     estimate_gate_status,
@@ -180,7 +181,13 @@ async def get_gate_status():
         data_source = "cached_fallback"
         try:
             schedule_data = load_cached_schedule(near_station, far_station, data_dir=DATA_DIR)
-            candidates = get_candidate_trains(schedule_data, current_dt, window_minutes=30, data_dir=DATA_DIR)
+            # Pass FALLBACK_WINDOW_MINUTES (90m) instead of live path's 30m window.
+            # The offline schedule cache has no live delay data at filter time,
+            # so a wider window is necessary to ensure severely delayed trains
+            # are not prematurely dropped before their live delay can be evaluated.
+            candidates = get_candidate_trains(
+                schedule_data, current_dt, window_minutes=FALLBACK_WINDOW_MINUTES, data_dir=DATA_DIR
+            )
         except StaleScheduleError as stale_exc:
             logger.warning("[REQUEST /gate/status] Schedule cache stale or missing: %s", stale_exc)
             logger.info(

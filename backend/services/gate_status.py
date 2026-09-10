@@ -94,16 +94,18 @@ def get_live_delay(
         or ("not_started" if not data.get("started", True) else "running")
     ).lower()
 
+    raw_delay = data.get("delayMinutes")
+    if raw_delay is None:
+        raw_delay = data.get("delay_minutes") or data.get("delay") or 0
+    try:
+        parsed_delay = int(raw_delay)
+    except (ValueError, TypeError):
+        parsed_delay = 0
+
     if status in ("not_started", "yet_to_start", "scheduled"):
-        delay_minutes = 0
+        delay_minutes = parsed_delay if parsed_delay > 0 else 0
     else:
-        raw_delay = data.get("delayMinutes")
-        if raw_delay is None:
-            raw_delay = data.get("delay_minutes") or data.get("delay") or 0
-        try:
-            delay_minutes = int(raw_delay)
-        except (ValueError, TypeError):
-            delay_minutes = 0
+        delay_minutes = parsed_delay
 
     return {
         "train_number": clean_train_num,
