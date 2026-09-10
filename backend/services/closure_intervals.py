@@ -12,8 +12,8 @@ def _to_datetime(val: Union[datetime, str]) -> datetime:
 def compute_merged_closure_intervals(
     supporting_trains: List[Dict[str, Any]],
     merge_threshold_min: float = 10.0,
-    closure_window_past_min: float = 3.0,
-    closure_window_future_min: float = 2.0,
+    closure_window_past_min: float = 2.0,
+    closure_window_future_min: float = 7.0,
 ) -> List[Dict[str, Any]]:
     """
     Pure merging logic for train level-crossing closure windows.

@@ -243,11 +243,11 @@ def test_configurable_closure_window_affects_causes_closure(mock_live, sample_ga
     # KAD at 12:06 + transit 1.83m = ETA 12:07.83 (~7.83 min from now)
     candidates = [make_candidate("12124", "12:06", direction="DOWN")]
 
-    # Default window (past 3, future 2)
+    # Default window (past 2, future 7)
     res_default = estimate_gate_status(sample_gate, candidates, curr_dt, api_key="k")
     assert res_default["status"] == "likely_open"
-    assert res_default["closure_window_past_min"] == 3.0
-    assert res_default["closure_window_future_min"] == 2.0
+    assert res_default["closure_window_past_min"] == 2.0
+    assert res_default["closure_window_future_min"] == 7.0
     assert res_default["trains"][0]["causes_closure"] is False
 
     # Custom extended window (future 10)
@@ -323,6 +323,8 @@ def test_closely_spaced_trains_merge_in_gap(mock_live, sample_gate):
         check_dt,
         api_key="k",
         train_merge_threshold_min=10.0,
+        closure_window_past_min=3.0,
+        closure_window_future_min=2.0,
     )
     assert res_merged["status"] == "likely_closed"
     assert res_merged["merge_threshold_min"] == 10.0
@@ -346,6 +348,8 @@ def test_closely_spaced_trains_merge_in_gap(mock_live, sample_gate):
         check_dt,
         api_key="k",
         train_merge_threshold_min=4.0,
+        closure_window_past_min=3.0,
+        closure_window_future_min=2.0,
     )
     assert res_unmerged["status"] == "likely_open"
     assert res_unmerged["merge_threshold_min"] == 4.0

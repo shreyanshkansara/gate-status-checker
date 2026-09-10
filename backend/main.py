@@ -144,8 +144,8 @@ async def get_gate_status():
     far_station = gate.get("far_station", "LNL")
 
     settings = load_settings(DATA_DIR)
-    closure_window_past_min = settings.get("closure_window_past_min", 3)
-    closure_window_future_min = settings.get("closure_window_future_min", 2)
+    closure_window_past_min = settings.get("closure_window_past_min", 2)
+    closure_window_future_min = settings.get("closure_window_future_min", 7)
     train_merge_threshold_min = settings.get("train_merge_threshold_min", 10)
 
     # Current IST time

@@ -293,8 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const s = await res.json();
 
-      futureSlider.value = s.closure_window_future_min ?? 2;
-      pastSlider.value = s.closure_window_past_min ?? 3;
+      futureSlider.value = s.closure_window_future_min ?? 7;
+      pastSlider.value = s.closure_window_past_min ?? 2;
       futureValBadge.textContent = `${futureSlider.value} min`;
       pastValBadge.textContent = `${pastSlider.value} min`;
 

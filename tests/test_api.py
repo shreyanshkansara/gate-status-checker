@@ -169,8 +169,8 @@ def test_get_settings_dual_routes(client, monkeypatch, tmp_path):
     res1 = client.get("/settings")
     assert res1.status_code == 200
     d1 = res1.json()
-    assert d1["closure_window_future_min"] == 2
-    assert d1["closure_window_past_min"] == 3
+    assert d1["closure_window_future_min"] == 7
+    assert d1["closure_window_past_min"] == 2
     assert d1["train_merge_threshold_min"] == 10
 
     res2 = client.get("/api/settings")
@@ -307,8 +307,8 @@ def test_post_settings_threshold_changes_next_gate_status_closure(
     """
     monkeypatch.setattr("backend.main.DATA_DIR", tmp_path)
 
-    # Initial settings: default threshold = 10
-    client.post("/settings", json={"train_merge_threshold_min": 10})
+    # Initial settings: threshold = 10 with isolated windows
+    client.post("/settings", json={"closure_window_future_min": 2, "closure_window_past_min": 3, "train_merge_threshold_min": 10})
 
     from backend.services.gate_status import RailRadarError
     mock_live_board.side_effect = RailRadarError("Live board unavailable")

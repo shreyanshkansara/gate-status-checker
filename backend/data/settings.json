@@ -1,6 +1,6 @@
 {
-  "closure_window_future_min": 2,
-  "closure_window_past_min": 3,
+  "closure_window_future_min": 7,
+  "closure_window_past_min": 2,
   "train_merge_threshold_min": 10,
   "updated_at": "2026-09-08T06:08:22.996593+00:00"
 }

@@ -141,8 +141,8 @@ def estimate_gate_status(
     current_datetime: datetime,
     api_key: Optional[str] = None,
     segment_km: float = 3.0,
-    closure_window_past_min: float = 3.0,
-    closure_window_future_min: float = 2.0,
+    closure_window_past_min: float = 2.0,
+    closure_window_future_min: float = 7.0,
     train_merge_threshold_min: float = 10.0,
 ) -> Dict[str, Any]:
     """
@@ -156,7 +156,7 @@ def estimate_gate_status(
 
     Closure rule:
     - If any train's eta_at_gate falls within the configurable closure window
-      (-closure_window_past_min to +closure_window_future_min minutes of current_datetime, default -3 to +2),
+      (-closure_window_past_min to +closure_window_future_min minutes of current_datetime, default -2 to +7),
       status is 'likely_closed', otherwise 'likely_open'.
     """
     gate_id = gate.get("id", "unknown_gate")
